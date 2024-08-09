@@ -48,10 +48,10 @@ class MainDrawer extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               alignment: Alignment.centerLeft,
               color: Colors.blueAccent.shade100,
-              child: const Text ('Cooking Up!',
+              child: const Text ('EOD Reconciliation!',
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
-                  fontSize: 30,
+                  fontSize: 25,
                   color: Colors.white,
                 ),
               ),

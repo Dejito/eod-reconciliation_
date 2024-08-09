@@ -51,6 +51,7 @@ class LandingPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 const TextField(
+                  obscureText: true,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                     hintText: "Enter your pin",
@@ -71,7 +72,7 @@ class LandingPage extends StatelessWidget {
                     onPressed: () async {
                       showLoadingIndicator();
                       await Future.delayed(const Duration(seconds: 2));
-                      // dismissLoadingIndicator();
+                      dismissLoadingIndicator();
                       if (context.mounted) {
                         Navigator.of(context)
                             .pushReplacementNamed(SelectionScreen.id);
