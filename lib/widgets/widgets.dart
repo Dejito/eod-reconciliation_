@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-Widget buildElevatedButton(Function() onPressed, String label, Color color) {
+Widget buildElevatedButton(
+    {required Function() onPressed,
+    required String label,
+    required Color buttonColor,
+    required Color borderColor,
+    required Color textColor}) {
   return ElevatedButton(
     style: ButtonStyle(
       elevation: MaterialStateProperty.resolveWith<double>((states) => 0),
@@ -8,7 +13,7 @@ Widget buildElevatedButton(Function() onPressed, String label, Color color) {
         (states) => const Size(425, 50),
       ),
       shape: MaterialStateProperty.resolveWith<OutlinedBorder>((states) {
-        Color borderColor = color;
+        // Color borderColor = borderColor;
         return RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4),
           side: BorderSide(width: 2, color: borderColor),
@@ -19,14 +24,15 @@ Widget buildElevatedButton(Function() onPressed, String label, Color color) {
           // if (states.contains(MaterialState.disabled) || onPressed == null) {
           //   return (color ?? AppColors.iAmAliveBlue.withOpacity(0.2));
           // }
-          return color;
+          return buttonColor;
         },
       ),
     ),
     onPressed: onPressed,
     child: Text(
       label,
-      style: TextStyle(),
+      style: TextStyle(
+          color: textColor, fontWeight: FontWeight.bold, fontSize: 16),
     ),
   );
 }

@@ -1,4 +1,5 @@
 import 'package:eod_reconcilaton/screens/selection_screen.dart';
+import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatelessWidget {
@@ -47,7 +48,7 @@ class LandingPage extends StatelessWidget {
                     ),
                   ),
                 ),
-               const SizedBox(height: 30),
+                const SizedBox(height: 30),
                 const TextField(
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
@@ -60,12 +61,51 @@ class LandingPage extends StatelessWidget {
                     ),
                   ),
                 ),
-        
-                const SizedBox(height: 30),
-        
-                forgotPassword(),
 
+                // Spacer(),
 
+                const SizedBox(height: 100),
+
+                buildElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context)
+                          .pushReplacementNamed(SelectionScreen.id);
+                    },
+                    label: "Login",
+                    buttonColor: Colors.blueAccent.shade200,
+                    textColor: Colors.white,
+                    borderColor: Colors.transparent),
+                const SizedBox(
+                  height: 10,
+                ),
+                // buildElevatedButton(
+                //     onPressed: () {
+                //       Navigator.of(context)
+                //           .pushReplacementNamed(SelectionScreen.id);
+                //     },
+                //     label: "Signup",
+                //     buttonColor: Colors.transparent,
+                //     borderColor: Colors.blueAccent,
+                //     textColor: Colors.blueAccent),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Don't have an account?"),
+                    TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Sign up",
+                          style: TextStyle(
+                              color: Colors.blueAccent,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15
+                          ),
+                        )),
+                  ],
+                )
+
+                // forgotPassword(),
 
                 // ElevatedButton(
                 //     onPressed: () {
@@ -93,7 +133,6 @@ class LandingPage extends StatelessWidget {
     );
   }
 }
-
 
 // Widget buildLoginAndRegButton(
 //     String buttonName,
