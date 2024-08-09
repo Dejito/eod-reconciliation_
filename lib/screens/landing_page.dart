@@ -71,7 +71,7 @@ class LandingPage extends StatelessWidget {
                     onPressed: () async {
                       showLoadingIndicator();
                       await Future.delayed(const Duration(seconds: 2));
-                      // dismissLoadingIndicator();
+                      dismissLoadingIndicator();
                       if (context.mounted) {
                         Navigator.of(context)
                             .pushReplacementNamed(SelectionScreen.id);
