@@ -75,6 +75,9 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
                 _amountWithdrawn = value;
               },
             ),
+
+            const SizedBox(height: 15),
+
             TextField(
               focusNode: _chargesFocusNode,
               controller: _chargeController,
