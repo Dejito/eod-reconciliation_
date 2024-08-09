@@ -1,4 +1,5 @@
 import 'package:eod_reconcilaton/screens/selection_screen.dart';
+import 'package:eod_reconcilaton/widgets/loading_indicator.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -68,7 +69,9 @@ class LandingPage extends StatelessWidget {
 
                 buildElevatedButton(
                     onPressed: () async {
-                      await Future.delayed(const Duration(seconds: 5));
+                      showLoadingIndicator();
+                      await Future.delayed(const Duration(seconds: 2));
+                      // dismissLoadingIndicator();
                       if (context.mounted) {
                         Navigator.of(context)
                             .pushReplacementNamed(SelectionScreen.id);
