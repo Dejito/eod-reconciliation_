@@ -32,53 +32,60 @@ class _HistoryState extends State<History> {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: FutureBuilder(
-            future: pos.fetchAndSetIncrease(),
-            builder:  (context, snapshot) =>
-              snapshot.connectionState== ConnectionState.waiting || posDB.isEmpty ?
-              const Center(child: Text('No transactions added yet!'),) :
-               SingleChildScrollView(
-                 // reverse: true,
-                 controller: controller,
-                 // physics: NeverScrollableScrollPhysics(),
-                 child: ListView.builder(
-                   reverse: true,
-                   shrinkWrap: true,
-                   physics: const NeverScrollableScrollPhysics(),
-                   itemBuilder: (context, i){
-                  return Card(
-                    child: Container(
-                        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Text(posDB[i].id.substring(0,11),style: const TextStyle(
-                                color: Colors.blue
-                            ),),
-                            Text(
-                                'POS increase is ${posDB[i].increaseAmount.toString()}'),
-                            Text(
-                              'Tf Withdrawal increase is  ${transferDb[i].increaseAmount.toString()}',
-                            ),
-                            Text(
-                              'Deposit increase is  ${depoDb[i].increaseAmount.toString()}',
-                            ),
-                      Text(
-                        'Total increase is  ${profitDb[i].increaseAmount.toString()}',
-                      style: const TextStyle(
-                        color: Colors.blue
+          Container(
+            margin: const EdgeInsets.all(12),
+            child: Expanded(
+              child: FutureBuilder(
+              future: pos.fetchAndSetIncrease(),
+              builder:  (context, snapshot) =>
+                snapshot.connectionState== ConnectionState.waiting || posDB.isEmpty ?
+                const Center(child: Text('No transactions added yet!'),) :
+                 SingleChildScrollView(
+                   // reverse: true,
+                   controller: controller,
+                   // physics: NeverScrollableScrollPhysics(),
+                   child: ListView.builder(
+                     reverse: true,
+                     shrinkWrap: true,
+                     physics: const NeverScrollableScrollPhysics(),
+                     itemBuilder: (context, i){
+                    return Card(
+                      color: Colors.amberAccent.shade100,
+                      child: Container(
+                          margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              Text(posDB[i].id.substring(0,11),style: const TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w500
+
+                              ),),
+                              Text(
+                                  'POS increase is ${posDB[i].increaseAmount.toString()}'),
+                              Text(
+                                'Tf Withdrawal increase is  ${transferDb[i].increaseAmount.toString()}',
+                              ),
+                              Text(
+                                'Deposit increase is  ${depoDb[i].increaseAmount.toString()}',
+                              ),
+                        Text(
+                          'Total increase is  ${profitDb[i].increaseAmount.toString()}',
+                        style: const TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500
+                          ),
                         ),
+                            ],
+                          )
                       ),
-                          ],
-                        )
-                    ),
-                  );
-              },
-                  itemCount: pos.databaseTransactions.length,
-              ),
-               ),
-          ),
+                    );
+                },
+                    itemCount: pos.databaseTransactions.length,
+                ),
+                 ),
+            ),
+            ),
           ),
         ],
       ),

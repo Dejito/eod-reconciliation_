@@ -19,7 +19,8 @@ class MainDrawer extends StatelessWidget {
   Widget listTile({required Function() onTap, required String txType, required IconData icon}) {
     return ListTile(
       leading:  Icon(
-          icon
+          icon,
+        color: Colors.blueAccent,
       ),
       title: Text(
         txType,
@@ -46,7 +47,7 @@ class MainDrawer extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.all(20),
               alignment: Alignment.centerLeft,
-              color: Colors.blueGrey,
+              color: Colors.blueAccent.shade100,
               child: const Text ('Cooking Up!',
                 style: TextStyle(
                   fontWeight: FontWeight.w900,

@@ -114,7 +114,7 @@ class TotalProfit extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 15,
-                          color: Colors.white
+                          color: Colors.blueAccent
                       ),
                     ),
                     icon: const Icon(
