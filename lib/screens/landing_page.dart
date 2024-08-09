@@ -67,9 +67,12 @@ class LandingPage extends StatelessWidget {
                 const SizedBox(height: 100),
 
                 buildElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed(SelectionScreen.id);
+                    onPressed: () async {
+                      await Future.delayed(const Duration(seconds: 5));
+                      if (context.mounted) {
+                        Navigator.of(context)
+                            .pushReplacementNamed(SelectionScreen.id);
+                      }
                     },
                     label: "Login",
                     buttonColor: Colors.blueAccent.shade200,
@@ -78,15 +81,6 @@ class LandingPage extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                // buildElevatedButton(
-                //     onPressed: () {
-                //       Navigator.of(context)
-                //           .pushReplacementNamed(SelectionScreen.id);
-                //     },
-                //     label: "Signup",
-                //     buttonColor: Colors.transparent,
-                //     borderColor: Colors.blueAccent,
-                //     textColor: Colors.blueAccent),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -99,32 +93,10 @@ class LandingPage extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.blueAccent,
                               fontWeight: FontWeight.bold,
-                              fontSize: 15
-                          ),
+                              fontSize: 15),
                         )),
                   ],
                 )
-
-                // forgotPassword(),
-
-                // ElevatedButton(
-                //     onPressed: () {
-                //       Navigator.of(context)
-                //           .pushReplacementNamed(SelectionScreen.id);
-                //     },
-                //     // style: ButtonStyle(
-                //     //   tapTargetSize: MaterialTapTargetSize.padded
-                //     // ),
-                //     // icon: const Icon(Icons.arrow_forward_ios_sharp),
-                //     // label: const Text('Get Started'),
-                //   style: ButtonStyle(
-                //     elevation: MaterialStateProperty.resolveWith<double>((states) => 0),
-                //     fixedSize: MaterialStateProperty.resolveWith<Size>(
-                //           (states) => const Size( 425, 50),
-                //     ),
-                //   ),
-                //   child: const Text("Get Started"),
-                // ),
               ],
             ),
           ),
@@ -133,45 +105,6 @@ class LandingPage extends StatelessWidget {
     );
   }
 }
-
-// Widget buildLoginAndRegButton(
-//     String buttonName,
-//     String buttonType, void Function() onTap,
-//     ) {
-//   return GestureDetector(
-//     onTap: onTap,
-//     child: Container(
-//       width: 350.w,
-//       height: 50.h,
-//       margin: EdgeInsets.only(top: buttonType == "login" ? 40.h : 20.h),
-//       decoration: BoxDecoration(
-//           color: buttonType == 'login'
-//               ? AppColors.primaryElement
-//               : AppColors.primaryBackground,
-//           borderRadius: BorderRadius.circular(15.w),
-//           border: Border.all(
-//             color: buttonType == 'login'
-//                 ? Colors.transparent
-//                 : AppColors.primaryFourElementText,
-//           ),
-//           boxShadow: [
-//             BoxShadow(
-//                 spreadRadius: 1,
-//                 blurRadius: 2,
-//                 offset: const Offset(0, 1),
-//                 color: Colors.grey.withOpacity(0.1))
-//           ]),
-//       child: Center(
-//         child: Text(
-//           buttonName,
-//           style: TextStyle(
-//               color: buttonType == 'login' ? Colors.white : Colors.black,
-//               fontSize: 16),
-//         ),
-//       ),
-//     ),
-//   );
-// }
 
 Widget forgotPassword() {
   return Container(
