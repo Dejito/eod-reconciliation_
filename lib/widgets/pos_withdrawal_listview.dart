@@ -7,7 +7,7 @@ import '../providers/pos_withdrawal_brain.dart';
 
 
 class PosWithdrawalListview extends StatelessWidget {
-  const PosWithdrawalListview({Key? key}) : super(key: key);
+  const PosWithdrawalListview({super.key});
 
   @override
   Widget build(BuildContext context) {

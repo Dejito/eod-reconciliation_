@@ -75,6 +75,7 @@ class LandingPage extends StatelessWidget {
                       }
                     },
                     label: "Login",
+
                     buttonColor: Colors.blueAccent.shade200,
                     textColor: Colors.white,
                     borderColor: Colors.transparent),
