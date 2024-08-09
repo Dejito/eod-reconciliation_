@@ -9,17 +9,17 @@ import 'deposits/deposit_screen.dart';
 class SelectionScreen extends StatelessWidget {
   static const id = 'selection_screen';
 
-  const SelectionScreen({Key? key}) : super(key: key);
+  const SelectionScreen({super.key});
 
   Widget txCard ({required String txType, required Function() onTap}) {
-    return  InkWell(
+    return InkWell(
       onTap: onTap,
       child: Card(
-        color: Colors.blueAccent.shade100,
+        color: Colors.blueAccent,
         elevation: 3,
-        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+        margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(32.0),
           child: Text(
             txType,
             textAlign: TextAlign.center,

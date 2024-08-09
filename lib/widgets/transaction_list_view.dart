@@ -5,7 +5,7 @@ import '../providers/tf_withdrawal_brain.dart';
 
 
 class TransactionsListView extends StatelessWidget {
-  const TransactionsListView({Key? key}) : super(key: key);
+  const TransactionsListView({super.key});
 
   @override
   Widget build(BuildContext context) {

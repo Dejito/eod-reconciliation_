@@ -14,7 +14,7 @@ import '../screens/total_profit/total_profit.dart';
 import '../screens/transfer_withdrawal/tx_with_increase_screen.dart';
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({Key? key}) : super(key: key);
+  const MainDrawer({super.key});
 
   Widget listTile({required Function() onTap, required String txType, required IconData icon}) {
     return ListTile(

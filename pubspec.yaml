@@ -58,6 +58,8 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
 
+  uses-material-design: true
+
   assets:
 #    - assets/images/landing_page.png/
     - assets/images/
