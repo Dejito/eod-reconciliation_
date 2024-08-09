@@ -85,6 +85,8 @@ class LandingPage extends StatelessWidget {
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
                     const Text("Don't have an account?"),
                     TextButton(
