@@ -44,10 +44,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primaryColor: Colors.black,
+          primaryColor: Colors.blueAccent,
           fontFamily: 'Lato',
           buttonTheme: ButtonTheme.of(context).copyWith(
-            buttonColor: Colors.green,
+            buttonColor: Colors.blueAccent,
           ),
         ),
         home: const LandingPage(),
@@ -67,3 +67,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
