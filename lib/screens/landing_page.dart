@@ -66,58 +66,25 @@ class LandingPage extends StatelessWidget {
                 forgotPassword(),
 
 
-                ElevatedButton(
-                  style: ButtonStyle(
-                    elevation: MaterialStateProperty.resolveWith<double>((states) => 0),
-                    fixedSize: MaterialStateProperty.resolveWith<Size>(
-                          (states) => Size(425, 50),
-                    ),
-                    shape: MaterialStateProperty.resolveWith<OutlinedBorder>((states) {
-                      Color borderColor = Colors.blueAccent;
-                      return RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular4.r),
-                        side: BorderSide(width: 2, color: this.borderColor ?? borderColor),
-                      );
-                    }),
-                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.disabled) || onPressed == null) {
-                          return (color ?? AppColors.iAmAliveBlue.withOpacity(0.2));
-                        }
-                        return color ?? AppColors.iAmAliveBlue;
-                      },
-                    ),
-                  ),
-                  onPressed: onPressed,
-                  child: text != null
-                      ? Text(text!,
-                      style: GoogleFonts.inter(
-                        fontSize: fontSize ?? 16.sp,
-                        color: textColor ?? Colors.white,
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500,
-                      ))
-                      : child,
-                )
 
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed(SelectionScreen.id);
-                    },
-                    // style: ButtonStyle(
-                    //   tapTargetSize: MaterialTapTargetSize.padded
-                    // ),
-                    // icon: const Icon(Icons.arrow_forward_ios_sharp),
-                    // label: const Text('Get Started'),
-                  style: ButtonStyle(
-                    elevation: MaterialStateProperty.resolveWith<double>((states) => 0),
-                    fixedSize: MaterialStateProperty.resolveWith<Size>(
-                          (states) => const Size( 425, 50),
-                    ),
-                  ),
-                  child: const Text("Get Started"),
-                ),
+                // ElevatedButton(
+                //     onPressed: () {
+                //       Navigator.of(context)
+                //           .pushReplacementNamed(SelectionScreen.id);
+                //     },
+                //     // style: ButtonStyle(
+                //     //   tapTargetSize: MaterialTapTargetSize.padded
+                //     // ),
+                //     // icon: const Icon(Icons.arrow_forward_ios_sharp),
+                //     // label: const Text('Get Started'),
+                //   style: ButtonStyle(
+                //     elevation: MaterialStateProperty.resolveWith<double>((states) => 0),
+                //     fixedSize: MaterialStateProperty.resolveWith<Size>(
+                //           (states) => const Size( 425, 50),
+                //     ),
+                //   ),
+                //   child: const Text("Get Started"),
+                // ),
               ],
             ),
           ),
