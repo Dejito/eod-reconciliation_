@@ -51,6 +51,7 @@ class LandingPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 const TextField(
+                  obscureText: true,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                     hintText: "Enter your pin",
