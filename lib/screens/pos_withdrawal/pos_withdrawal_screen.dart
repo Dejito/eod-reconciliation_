@@ -1,13 +1,15 @@
-import 'package:eod/screens/pos_withdrawal/pos_with_increase_screen.dart';
-import 'package:eod/widgets/pos_withdrawal_listview.dart';
+
+import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_with_increase_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:eod/providers/pos_withdrawal_brain.dart';
+
+import '../../providers/pos_withdrawal_brain.dart';
+import '../../widgets/pos_withdrawal_listview.dart';
 
 class POSWithdrawalScreen extends StatefulWidget {
   static const id = 'pos_withdrawal_screen';
 
-  const POSWithdrawalScreen({Key? key}) : super(key: key);
+  const POSWithdrawalScreen({super.key});
 
   @override
   State<POSWithdrawalScreen> createState() => _POSWithdrawalScreenState();

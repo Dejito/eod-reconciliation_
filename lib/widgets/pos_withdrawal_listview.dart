@@ -1,7 +1,9 @@
+import 'package:eod_reconcilaton/widgets/transactions_listview_items.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:eod/providers/pos_withdrawal_brain.dart';
-import 'package:eod/widgets/transactions_listview_items.dart';
+
+import '../providers/pos_withdrawal_brain.dart';
+
 
 
 class PosWithdrawalListview extends StatelessWidget {

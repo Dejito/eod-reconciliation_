@@ -1,10 +1,10 @@
-import 'package:eod/screens/selection_screen.dart';
+import 'package:eod_reconcilaton/screens/selection_screen.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatelessWidget {
   static const id = 'landing_page';
 
-  const LandingPage({Key? key}) : super(key: key);
+  const LandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {

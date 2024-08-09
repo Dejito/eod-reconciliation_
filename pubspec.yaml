@@ -59,7 +59,7 @@ dev_dependencies:
 flutter:
 
   assets:
-    - assets/images/landing_page.png
+#    - assets/images/landing_page.png/
     - assets/images/
 
   fonts:

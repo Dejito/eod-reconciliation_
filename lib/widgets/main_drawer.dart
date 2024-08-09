@@ -1,15 +1,17 @@
-import 'package:eod/providers/deposit_brain.dart';
-import 'package:eod/providers/profit_db.dart';
-import 'package:eod/providers/tf_withdrawal_brain.dart';
-import 'package:eod/screens/history.dart';
-import 'package:eod/screens/deposits/deposit_increase_screen.dart';
-import 'package:eod/screens/pos_withdrawal/pos_with_increase_screen.dart';
-import 'package:eod/screens/selection_screen.dart';
-import 'package:eod/screens/total_profit/total_profit.dart';
-import 'package:eod/screens/transfer_withdrawal/tx_with_increase_screen.dart';
+
 import 'package:flutter/material.dart';
-import 'package:eod/providers/pos_withdrawal_brain.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/deposit_brain.dart';
+import '../providers/pos_withdrawal_brain.dart';
+import '../providers/profit_db.dart';
+import '../providers/tf_withdrawal_brain.dart';
+import '../screens/deposits/deposit_increase_screen.dart';
+import '../screens/history.dart';
+import '../screens/pos_withdrawal/pos_with_increase_screen.dart';
+import '../screens/selection_screen.dart';
+import '../screens/total_profit/total_profit.dart';
+import '../screens/transfer_withdrawal/tx_with_increase_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key? key}) : super(key: key);

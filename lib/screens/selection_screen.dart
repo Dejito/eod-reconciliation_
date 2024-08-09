@@ -1,9 +1,10 @@
-import 'package:eod/screens/deposits/deposit_screen.dart';
-import 'package:eod/screens/pos_withdrawal/pos_withdrawal_screen.dart';
-// import 'package:eod/screens/pos_withdrawal/pos_withdrawal_screen.dart';
-import 'package:eod/screens/transfer_withdrawal/transfer_withdrawal_screen.dart';
+
+import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_withdrawal_screen.dart';
+import 'package:eod_reconcilaton/screens/transfer_withdrawal/transfer_withdrawal_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:eod/widgets/main_drawer.dart';
+
+import '../widgets/main_drawer.dart';
+import 'deposits/deposit_screen.dart';
 
 class SelectionScreen extends StatelessWidget {
   static const id = 'selection_screen';

@@ -1,7 +1,8 @@
-import 'package:eod/providers/deposit_brain.dart';
+import 'package:eod_reconcilaton/widgets/transactions_listview_items.dart';
 import 'package:flutter/material.dart';
-import 'package:eod/widgets/transactions_listview_items.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/deposit_brain.dart';
 
 
 class DepositListView extends StatelessWidget {

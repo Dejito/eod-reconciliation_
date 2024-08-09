@@ -1,4 +1,4 @@
-import 'package:eod/screens/transfer_withdrawal/tx_with_increase_screen.dart';
+import 'package:eod_reconcilaton/screens/transfer_withdrawal/tx_with_increase_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../widgets/transaction_list_view.dart';

@@ -1,9 +1,10 @@
-import 'package:eod/providers/deposit_brain.dart';
-import 'package:eod/providers/pos_withdrawal_brain.dart';
-import 'package:eod/providers/tf_withdrawal_brain.dart';
 import 'package:flutter/material.dart';
-import 'package:eod/providers/profit_db.dart';
 import 'package:provider/provider.dart';
+
+import '../../providers/deposit_brain.dart';
+import '../../providers/pos_withdrawal_brain.dart';
+import '../../providers/profit_db.dart';
+import '../../providers/tf_withdrawal_brain.dart';
 
 
 class TotalProfit extends StatelessWidget {
