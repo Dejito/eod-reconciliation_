@@ -39,11 +39,15 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
       appBar: AppBar(
         title: const Text('Transfer Withdrawal'),
         actions: [
-          CircleAvatar(
-            radius: 16,
-            child: Text(
-              '${txBrain.transaction.length}',
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+          Container(
+            padding: const EdgeInsets.all(12),
+            child: CircleAvatar(
+              backgroundColor: Colors.blueAccent,
+              radius: 16,
+              child: Text(
+                '${txBrain.transaction.length}',
+                style: const TextStyle(color: Colors.white, fontSize: 16),
+              ),
             ),
           )
         ],
@@ -70,8 +74,9 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
                 }
               },
             ),
-            const SizedBox(height: 15,),
-
+            const SizedBox(
+              height: 15,
+            ),
             TextField(
               focusNode: _chargesFocusNode,
               keyboardType: TextInputType.number,
@@ -91,38 +96,67 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                buildTextButton(onPressed: onPressed, label: label)
-                TextButton(
-                    onPressed: () {
-                      if (_chargeFee.isEmpty || _txAmount.isEmpty) {
-                        return;
-                      }
-                      //add to transaction list
-                      txBrain.addTransaction(int.parse(_txAmount));
-                      //convert string of amount withdrawn to int
-                      int? chargesValue = int.tryParse(_chargeFee);
-                      //put calculate result method here
-                      int? increase = txBrain
-                          .calculateTransferWithdrawalIncrease(chargesValue!);
-                      //add the increase to a list
-                      txBrain.addIncrease(increase!);
+                buildTextButton(
+                  onPressed: () {
+                    if (_chargeFee.isEmpty || _txAmount.isEmpty) {
+                      return;
+                    }
+                    //add to transaction list
+                    txBrain.addTransaction(int.parse(_txAmount));
+                    //convert string of amount withdrawn to int
+                    int? chargesValue = int.tryParse(_chargeFee);
+                    //put calculate result method here
+                    int? increase = txBrain
+                        .calculateTransferWithdrawalIncrease(chargesValue!);
+                    //add the increase to a list
+                    txBrain.addIncrease(increase!);
 
-                      _amountController.clear();
-                      _chargesController.clear();
-                      _txAmount = '';
-                      _chargeFee = '';
-                      FocusScope.of(context).requestFocus(_amountFocusNode);
-                    },
-                    child: const Text('Add transaction')),
-                TextButton(
-                    onPressed: () {
-                      txBrain.removeTransaction();
-                      txBrain.removeIncrease();
-                    },
-                    child: const Text('Undo add')),
+                    _amountController.clear();
+                    _chargesController.clear();
+                    _txAmount = '';
+                    _chargeFee = '';
+                    FocusScope.of(context).requestFocus(_amountFocusNode);
+                  },
+                  label: 'Add transaction',
+                ),
+                buildTextButton(
+                  onPressed: () {
+                    txBrain.removeTransaction();
+                    txBrain.removeIncrease();
+                  },
+                  label: 'Undo add',
+                ),
+                // TextButton(
+                //     onPressed: () {
+                //       if (_chargeFee.isEmpty || _txAmount.isEmpty) {
+                //         return;
+                //       }
+                //       //add to transaction list
+                //       txBrain.addTransaction(int.parse(_txAmount));
+                //       //convert string of amount withdrawn to int
+                //       int? chargesValue = int.tryParse(_chargeFee);
+                //       //put calculate result method here
+                //       int? increase = txBrain
+                //           .calculateTransferWithdrawalIncrease(chargesValue!);
+                //       //add the increase to a list
+                //       txBrain.addIncrease(increase!);
+                //
+                //       _amountController.clear();
+                //       _chargesController.clear();
+                //       _txAmount = '';
+                //       _chargeFee = '';
+                //       FocusScope.of(context).requestFocus(_amountFocusNode);
+                //     },
+                //     child: const Text('Add transaction')),
+                // TextButton(
+                //     onPressed: () {
+                //       txBrain.removeTransaction();
+                //       txBrain.removeIncrease();
+                //     },
+                //     child: const Text('Undo add')),
               ],
             ),
-            ElevatedButton(
+            buildElevatedButton2(
               onPressed: () {
                 if (txBrain.transaction.isEmpty) {
                   return;
@@ -131,8 +165,19 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
                 Navigator.of(context).pushNamed(TxWithIncreaseScreen.id,
                     arguments: inCreaseValue);
               },
-              child: const Text('Calculate increase'),
+              label: 'Calculate increase',
             ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     if (txBrain.transaction.isEmpty) {
+            //       return;
+            //     }
+            //     final inCreaseValue = txBrain.sumOfIncreaseValue;
+            //     Navigator.of(context).pushNamed(TxWithIncreaseScreen.id,
+            //         arguments: inCreaseValue);
+            //   },
+            //   child: const Text('Calculate increase'),
+            // ),
           ],
         ),
       ),
