@@ -9,7 +9,7 @@ import 'deposit_increase_screen.dart';
 class DepositScreen extends StatefulWidget {
   static const id = 'deposit_screen';
 
-  const DepositScreen({Key? key}) : super(key: key);
+  const DepositScreen({super.key});
 
   @override
   State<DepositScreen> createState() => _DepositScreenState();
