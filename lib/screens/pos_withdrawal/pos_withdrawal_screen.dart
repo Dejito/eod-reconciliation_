@@ -26,15 +26,10 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
   }
 
   final _amountController = TextEditingController();
-
   final _chargeController = TextEditingController();
-
   final _chargesFocusNode = FocusNode();
-
   final _amountFocusNode = FocusNode();
-
   var _amountWithdrawn = '';
-
   var _charges = '';
 
   @override
