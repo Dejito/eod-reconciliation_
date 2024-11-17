@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../providers/pos_withdrawal_brain.dart';
 import '../../widgets/increase_screen_widget.dart';
-import '../selection_screen.dart';
+import '../dashboard.dart';
 
 class PosWithIncreaseScreen extends StatelessWidget {
   static const id = 'pos_with_increase_screen';

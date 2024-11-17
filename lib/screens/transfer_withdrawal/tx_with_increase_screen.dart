@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/tf_withdrawal_brain.dart';
-import '../selection_screen.dart';
+import '../dashboard.dart';
 
 class TxWithIncreaseScreen extends StatelessWidget {
   static const id = 'tx_with_increase_screen';

@@ -48,8 +48,8 @@ class DepositBrain extends ChangeNotifier {
     notifyListeners();
   }
 
-  int? calcProfit(int amount) {
-    return amount - 20;
+  int? calcProfit(int charges) {
+    return charges - 20;
   }
 
   int get depositIncrease{

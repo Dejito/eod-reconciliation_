@@ -61,6 +61,7 @@ class TransactionBrain extends ChangeNotifier {
     _transactions.removeLast();
     notifyListeners();
   }
+
   void removeIncrease() {
     if(_transactions.isEmpty) {
       return;
@@ -68,6 +69,7 @@ class TransactionBrain extends ChangeNotifier {
     _increase.removeLast();
     notifyListeners();
   }
+
   int? calculateTransferWithdrawalIncrease (int amount) {
     if (amount < 200) {
       return amount;

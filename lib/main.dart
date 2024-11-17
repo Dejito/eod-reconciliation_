@@ -9,7 +9,7 @@ import 'package:eod_reconcilaton/screens/history.dart';
 import 'package:eod_reconcilaton/screens/landing_page.dart';
 import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_with_increase_screen.dart';
 import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_withdrawal_screen.dart';
-import 'package:eod_reconcilaton/screens/selection_screen.dart';
+import 'package:eod_reconcilaton/screens/dashboard.dart';
 import 'package:eod_reconcilaton/screens/total_profit/total_profit.dart';
 import 'package:eod_reconcilaton/screens/transfer_withdrawal/transfer_withdrawal_screen.dart';
 import 'package:eod_reconcilaton/screens/transfer_withdrawal/tx_with_increase_screen.dart';

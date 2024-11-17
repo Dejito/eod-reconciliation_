@@ -1,4 +1,4 @@
-import 'package:eod_reconcilaton/screens/selection_screen.dart';
+import 'package:eod_reconcilaton/screens/dashboard.dart';
 import 'package:eod_reconcilaton/widgets/loading_indicator.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -115,7 +115,7 @@ class LandingPage extends StatelessWidget {
 
 Widget forgotPassword() {
   return Container(
-    margin: EdgeInsets.only(top: 15),
+    margin: const EdgeInsets.only(top: 15),
     width: 260,
     height: 44,
     child: GestureDetector(
