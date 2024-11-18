@@ -169,6 +169,7 @@ Widget transactionTypeButton(
         title: titleText(
           title,
           fontSize: 15.sp,
+          fontWeight: FontWeight.bold,
           color: isProfitScreen ? Colors.white : Colors.black
         ),
         trailing: Icon(

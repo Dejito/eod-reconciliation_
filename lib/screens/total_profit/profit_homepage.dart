@@ -10,7 +10,18 @@ class ProfitHomepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Profits'),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(5.0),
+          // Define the preferred size
+          child: Container(
+            color: Colors.grey,
+            height: 2,
+          ),
+        ),
+      ),
       body: Container(
         margin: EdgeInsets.all(16.h),
         child: SingleChildScrollView(
@@ -21,15 +32,24 @@ class ProfitHomepage extends StatelessWidget {
                 isProfitScreen: true,
                 onTap: () {},
               ),
+              SizedBox(
+                height: 20.h,
+              ),
               transactionTypeButton(
                 title: "Transfer Withdrawal Profit",
                 isProfitScreen: true,
                 onTap: () {},
               ),
+              SizedBox(
+                height: 20.h,
+              ),
               transactionTypeButton(
                 title: "POS Profit",
                 isProfitScreen: true,
                 onTap: () {},
+              ),
+              SizedBox(
+                height: 20.h,
               ),
               transactionTypeButton(
                 title: "Total Profit",
