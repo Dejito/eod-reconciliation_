@@ -12,7 +12,7 @@ import '../dashboard/dashboard.dart';
 class DepositIncreaseScreen extends StatelessWidget {
   static const id = 'deposit_increase_screen';
 
-  const DepositIncreaseScreen({Key? key}) : super(key: key);
+  const DepositIncreaseScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
