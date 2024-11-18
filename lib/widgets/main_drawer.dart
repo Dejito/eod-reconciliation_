@@ -1,6 +1,9 @@
 
 import 'package:eod_reconcilaton/screens/tab_screen.dart';
+import 'package:eod_reconcilaton/utils/assets.dart';
+import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/deposit_brain.dart';
@@ -21,13 +24,12 @@ class MainDrawer extends StatelessWidget {
     return ListTile(
       leading:  Icon(
           icon,
-        color: Colors.blueAccent,
+        color: AppColors.primaryColor,
       ),
-      title: Text(
+      title: titleText(
         txType,
-        style: const TextStyle(
-            fontSize: 17
-        ),
+        fontSize: 15.sp,
+        color: const Color(0xFF000000)
       ),
       onTap: onTap
       
@@ -44,19 +46,17 @@ class MainDrawer extends StatelessWidget {
               height: 30,
             ),
             Container(
-              height: 120,
+              height: 100.h,
               width: double.infinity,
               padding: const EdgeInsets.all(20),
               alignment: Alignment.centerLeft,
-              color: Colors.blueAccent.shade100,
-              child: const Text ('EOD Reconciliation!',
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
+              color: AppColors.primaryColor,
+              child: titleText ('EOD Reconciliation',
+                  fontWeight: FontWeight.w700,
                   fontSize: 25,
                   color: Colors.white,
                 ),
               ),
-            ),
             const SizedBox(
               height: 10,
             ),
@@ -70,7 +70,7 @@ class MainDrawer extends StatelessWidget {
             const Divider(thickness: 1,),
             listTile(
                 txType: 'POS Profit',
-                icon: Icons.calculate,
+                icon: Icons.point_of_sale,
                 onTap: (){
               Navigator.of(context).pushNamed(PosWithIncreaseScreen.id);
             },
@@ -95,11 +95,12 @@ class MainDrawer extends StatelessWidget {
 
             listTile(
               txType: 'Total Profit ',
-              icon: Icons.calendar_today,
+              icon: Icons.calculate_outlined,
               onTap: (){
                 Navigator.of(context).pushNamed(TotalProfit.id);
               },
             ),
+
             const Divider(thickness: 1,),
             listTile(
               txType: 'History',

@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:eod_reconcilaton/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Widget titleText(
     String text,
-    { Color color = Colors.black,
+    { Color color = AppColors.textColor,
     double fontSize = 14,
     double topPadding = 0.0,
     double bottomPadding = 0.0,
