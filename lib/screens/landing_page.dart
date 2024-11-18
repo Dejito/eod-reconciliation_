@@ -71,7 +71,7 @@ class LandingPage extends StatelessWidget {
                 buildElevatedButton(
                     onPressed: () async {
                       showLoadingIndicator();
-                      await Future.delayed(const Duration(seconds: 2));
+                      // await Future.delayed(const Duration(seconds: 2));
                       dismissLoadingIndicator();
                       if (context.mounted) {
                         Navigator.of(context)
