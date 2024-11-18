@@ -22,39 +22,35 @@ class TransactionsListviewItems extends StatelessWidget {
             shape: BoxShape.circle
             // borderRadius: BorderRadius.all(Radius.circular()),
           ),
-          child: Column(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(child: Container()),
-                  titleText(
-                    amount,
-                    textAlign: TextAlign.center,
-                      fontSize: 15,
-                    endPadding: 6.w
-                  ),
-                  const SizedBox(width: 10,),
-                  Container(
-                    color: AppColors.primaryColor,
-                    padding: EdgeInsets.symmetric(horizontal: 6.w),
-                    child: titleText(
-                        charge,
-                        textAlign: TextAlign.center,
-                        fontSize: 14,
-                      color: Colors.white
-                    ),
-                  ),
-                  Expanded(child: Container()),
-                  const Icon(
-                    Icons.delete_outline,
-                    color: Color(0xFFB40303),
-                    size: 30,
-                  ),
-                  SizedBox(width: 10.w,),
-
-                ],
+              Expanded(child: Container()),
+              titleText(
+                amount,
+                textAlign: TextAlign.center,
+                  fontSize: 15,
+                endPadding: 6.w
               ),
+              const SizedBox(width: 10,),
+              Container(
+                color: AppColors.primaryColor,
+                padding: EdgeInsets.symmetric(horizontal: 6.w),
+                child: titleText(
+                    charge,
+                    textAlign: TextAlign.center,
+                    fontSize: 14,
+                  color: Colors.white
+                ),
+              ),
+              Expanded(child: Container()),
+              const Icon(
+                Icons.delete_outline,
+                color: Color(0xFFB40303),
+                size: 30,
+              ),
+              SizedBox(width: 10.w,),
+
             ],
           ),
         ),
