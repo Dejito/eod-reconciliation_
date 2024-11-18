@@ -9,7 +9,7 @@ import '../dashboard/dashboard.dart';
 class PosWithIncreaseScreen extends StatelessWidget {
   static const id = 'pos_with_increase_screen';
 
-  const PosWithIncreaseScreen({Key? key}) : super(key: key);
+  const PosWithIncreaseScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +19,7 @@ class PosWithIncreaseScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           'POS Profit'
         ),

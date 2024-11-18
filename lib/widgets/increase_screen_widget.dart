@@ -7,7 +7,7 @@ class IncreaseScreenWidget extends StatelessWidget {
   final Widget listViewBuilder;
   final String pageNavigator;
 
-   const IncreaseScreenWidget({Key? key, required this.hintText, required this.increaseFigure, required this.listViewBuilder, required this.pageNavigator}) : super(key: key);
+   const IncreaseScreenWidget({super.key, required this.hintText, required this.increaseFigure, required this.listViewBuilder, required this.pageNavigator});
 
   @override
   Widget build(BuildContext context) {
