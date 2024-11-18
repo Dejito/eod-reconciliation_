@@ -27,7 +27,7 @@ class PosWithdrawalListview extends StatelessWidget {
                 pos.removeIncreaseDismissible(pos.increase[i]);
               },
               background: Container(
-                margin: const EdgeInsets.only(top: 3),
+                margin: const EdgeInsets.only(top: 6),
                 padding: const EdgeInsets.only(left: 12),
                 decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.error,
