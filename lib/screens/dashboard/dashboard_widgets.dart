@@ -1,4 +1,6 @@
+import 'package:eod_reconcilaton/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 
@@ -10,11 +12,11 @@ Widget dashboardCard(BuildContext context) {
     clipBehavior: Clip.none,
     children: [
       Container(
-        height: 100,
+        height: 100.h,
         width: double.infinity,
         padding: EdgeInsets.all(12),
-        color: Colors.red,
-        child: Row(
+        color: AppColors.primaryColor,
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
