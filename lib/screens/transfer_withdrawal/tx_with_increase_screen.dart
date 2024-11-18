@@ -16,7 +16,6 @@ class TxWithIncreaseScreen extends StatelessWidget {
     final txBrain = Provider.of<TransactionBrain>(context);
     final increaseFigure = txBrain.sumOfIncreaseValue;
 
-    // ModalRoute.of(context)?.settings.arguments;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -34,7 +33,8 @@ class TxWithIncreaseScreen extends StatelessWidget {
       ),
       body: increaseFigure <= 0
           ? const Center(child: Text('No transactions added yet!'))
-          : Container(
+          :
+      Container(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               // margin: EdgeInsets.symmetric(vertical: 16.w),
               child: IncreaseScreenWidget(
