@@ -1,4 +1,5 @@
-import 'package:eod_reconcilaton/screens/history.dart';
+import 'package:eod_reconcilaton/screens/history/history.dart';
+import 'package:eod_reconcilaton/screens/total_profit/profit_homepage.dart';
 import 'package:eod_reconcilaton/screens/total_profit/total_profit.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _TabScreenState extends State<TabScreen> {
 
   final List<Map<String, dynamic>> _pages = [
     {'page': const Dashboard(), 'title': 'HOME'},
-    {'page': const TotalProfit(), 'title': 'PROFITS'},
+    {'page': const ProfitHomepage(), 'title': 'PROFITS'},
     {'page': const History(), 'title': 'HISTORY'},
 
   ];

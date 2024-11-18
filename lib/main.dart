@@ -5,7 +5,7 @@ import 'package:eod_reconcilaton/providers/profit_db.dart';
 import 'package:eod_reconcilaton/providers/tf_withdrawal_brain.dart';
 import 'package:eod_reconcilaton/screens/deposits/deposit_increase_screen.dart';
 import 'package:eod_reconcilaton/screens/deposits/deposit_screen.dart';
-import 'package:eod_reconcilaton/screens/history.dart';
+import 'package:eod_reconcilaton/screens/history/history.dart';
 import 'package:eod_reconcilaton/screens/landing_page.dart';
 import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_with_increase_screen.dart';
 import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_withdrawal_screen.dart';

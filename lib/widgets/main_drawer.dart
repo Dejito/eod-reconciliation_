@@ -1,4 +1,5 @@
 
+import 'package:eod_reconcilaton/screens/tab_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,7 +8,7 @@ import '../providers/pos_withdrawal_brain.dart';
 import '../providers/profit_db.dart';
 import '../providers/tf_withdrawal_brain.dart';
 import '../screens/deposits/deposit_increase_screen.dart';
-import '../screens/history.dart';
+import '../screens/history/history.dart';
 import '../screens/pos_withdrawal/pos_with_increase_screen.dart';
 import '../screens/dashboard/dashboard.dart';
 import '../screens/total_profit/total_profit.dart';
@@ -63,7 +64,7 @@ class MainDrawer extends StatelessWidget {
               txType: 'Home',
               icon: Icons.home_outlined,
               onTap: (){
-                Navigator.of(context).pushNamed(Dashboard.id);
+                Navigator.of(context).pushNamed(TabScreen.id);
               },
             ),
             const Divider(thickness: 1,),
@@ -103,12 +104,14 @@ class MainDrawer extends StatelessWidget {
             listTile(
               txType: 'History',
               icon: Icons.history,
-              onTap: () async{
-                await Provider.of<TransactionBrain>(context, listen: false).fetchAndSetData();
-                await Provider.of<PosWithdrawalBrain>(context,listen: false).fetchAndSetIncrease();
-                await Provider.of<DepositBrain>(context, listen: false).fetchAndSetData();
-                await Provider.of<ProfitDatabase>(context, listen: false).fetchAndSetData();
-                Navigator.of(context).pushNamed(History.id);
+              onTap: () async {
+                if(context.mounted) {
+                  await Provider.of<TransactionBrain>(context, listen: false).fetchAndSetData();
+                  await Provider.of<PosWithdrawalBrain>(context,listen: false).fetchAndSetIncrease();
+                  await Provider.of<DepositBrain>(context, listen: false).fetchAndSetData();
+                  await Provider.of<ProfitDatabase>(context, listen: false).fetchAndSetData();
+                  Navigator.of(context).pushNamed(History.id);
+                }
               },
             ),
             const Divider(thickness: 1,),

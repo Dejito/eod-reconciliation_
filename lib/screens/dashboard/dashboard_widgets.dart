@@ -151,12 +151,12 @@ Widget dashboardCard(BuildContext context) {
 }
 
 Widget transactionTypeButton(
-    {required String title, required Function() onTap}) {
+    {required String title, required Function() onTap, bool isProfitScreen = false} ) {
   return InkWell(
     onTap: onTap,
     child: Container(
       decoration: BoxDecoration(
-        // color: Color(0xFFFEFEFE),
+        color: isProfitScreen ? AppColors.primaryColor : Colors.transparent,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
         border: Border.all(color: Colors.black),
       ),
@@ -169,10 +169,12 @@ Widget transactionTypeButton(
         title: titleText(
           title,
           fontSize: 15.sp,
+          color: isProfitScreen ? Colors.white : Colors.black
         ),
         trailing: Icon(
           Icons.chevron_right,
           size: 28.sp,
+          color: isProfitScreen ? Colors.white : Colors.grey.shade800,
         ),
       ),
     ),
