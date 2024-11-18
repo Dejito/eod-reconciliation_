@@ -68,7 +68,7 @@ class Dashboard extends StatelessWidget {
           children: [
             dashboardCard(context),
             SizedBox(
-              height: 40,
+              height: 80,
             ),
             txCard(
                 txType: 'POS Transactions',

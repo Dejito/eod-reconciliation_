@@ -12,6 +12,7 @@ Widget dashboardCard(BuildContext context) {
       Container(
         height: 100,
         width: double.infinity,
+        padding: EdgeInsets.all(12),
         color: Colors.red,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,15 +35,23 @@ Widget dashboardCard(BuildContext context) {
         ),
       ),
       Positioned(
-        top: 40,
+        top: 60,
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.9, // Constrain width
+          width: MediaQuery.of(context).size.width * 0.86, // Constrain width
           height: 100,
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 6),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            color: Colors.blue,
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.8), // Shadow color with transparency
+                spreadRadius: 2, // Spread radius
+                blurRadius: 4, // Blur radius
+                offset: Offset(0, 2), // Changes position of shadow (x, y)
+              ),
+            ],
           ),
+
           child: Text(
             "Cumu profit",
             textAlign: TextAlign.center,
