@@ -9,7 +9,7 @@ import '../dashboard/dashboard.dart';
 class TxWithIncreaseScreen extends StatelessWidget {
   static const id = 'tx_with_increase_screen';
 
-  const TxWithIncreaseScreen({Key? key}) : super(key: key);
+  const TxWithIncreaseScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
