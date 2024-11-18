@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../../providers/pos_withdrawal_brain.dart';
 import '../../widgets/increase_screen_widget.dart';
 import '../dashboard/dashboard.dart';
+import '../tab_screen.dart';
 
 class PosWithIncreaseScreen extends StatelessWidget {
   static const id = 'pos_with_increase_screen';
@@ -74,7 +75,7 @@ class PosWithIncreaseScreen extends StatelessWidget {
                   },
                   itemCount: pos.increase.length,
                 ),
-                pageNavigator: Dashboard.id,
+              pageNavigator: TabScreen.id,
               ),
           ),
     );

@@ -1,3 +1,4 @@
+import 'package:eod_reconcilaton/screens/tab_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -68,7 +69,7 @@ class TxWithIncreaseScreen extends StatelessWidget {
                   },
                   itemCount: txBrain.transaction.length,
                 ),
-                pageNavigator: Dashboard.id,
+                pageNavigator: TabScreen.id,
               ),
             ),
 
