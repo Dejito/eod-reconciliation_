@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/deposit_brain.dart';
 import '../../providers/pos_withdrawal_brain.dart';
 import '../../providers/profit_db.dart';
 import '../../providers/tf_withdrawal_brain.dart';
+import '../../utils/assets.dart';
+import '../../utils/widgets.dart';
 
 
 class TotalProfit extends StatelessWidget {
@@ -19,16 +22,14 @@ class TotalProfit extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
+          titleText(
             '$transactionType profit'
           ),
-          Text(
+          titleText(
             profit,
             textAlign: TextAlign.left,
-            style: const TextStyle(
                 fontSize: 19
             ),
-          ),
         ],
       ),
     );
@@ -75,52 +76,94 @@ class TotalProfit extends StatelessWidget {
                 textBaseline: TextBaseline.alphabetic,
                 children: [
                   Container(
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10)
+                    padding:  EdgeInsets.symmetric(horizontal:16.w, vertical: 12),
+                    margin:  EdgeInsets.symmetric(horizontal: 9.w, vertical: 6.w),
+                    color: AppColors.primaryColor,
+                    child: titleText(
+                      'Total Profit = $netProfit',
+                      // style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.white,
                     ),
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(11),
-                    child: Text(
-                      'Total Profit  $netProfit',
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.5,
-                          color: Colors.white
-                      ),
-                    ),
+                    // textAlign: TextAlign.center,
                   ),
-                  ElevatedButton.icon(
-                    onPressed: () async{
+                  InkWell(
+                    onTap: (){
                       pos.saveToDb();
                       transfer.saveToDb();
                       depo.saveToDb();
                       profit.saveToDb(netProfit);
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text(
-                          'Saved!',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
+                          const SnackBar(content: Text(
+                            'Saved!',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
+                            backgroundColor: Colors.green,
+                          )
+                      );                    },
+                    child: Row(
+                      children: [
+                        titleText('SAVE',fontWeight: FontWeight.w500, fontSize: 16,),
+                        SizedBox(width: 3.w,),
+                        const Icon(
+                          Icons.save,
+                          color: AppColors.primaryColor,
                         ),
-                        backgroundColor: Colors.green,
-                        )
-                      );
-                    },
-                    label: const Text(
-                      'Save',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                          color: Colors.blueAccent
-                      ),
-                    ),
-                    icon: const Icon(
-                        Icons.save
+                      ],
                     ),
                   ),
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.blue,
+                  //     borderRadius: BorderRadius.circular(10)
+                  //   ),
+                  //   margin: const EdgeInsets.all(10),
+                  //   padding: const EdgeInsets.all(11),
+                  //   child: Text(
+                  //     'Total Profit  $netProfit',
+                  //     style: const TextStyle(
+                  //         fontWeight: FontWeight.bold,
+                  //         fontSize: 20.5,
+                  //         color: Colors.white
+                  //     ),
+                  //   ),
+                  // ),
+                  // ElevatedButton.icon(
+                  //   onPressed: () async{
+                  //     pos.saveToDb();
+                  //     transfer.saveToDb();
+                  //     depo.saveToDb();
+                  //     profit.saveToDb(netProfit);
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //       const SnackBar(content: Text(
+                  //         'Saved!',
+                  //         style: TextStyle(
+                  //           fontSize: 14,
+                  //           color: Colors.white,
+                  //         ),
+                  //         textAlign: TextAlign.center,
+                  //       ),
+                  //       backgroundColor: Colors.green,
+                  //       )
+                  //     );
+                  //   },
+                  //   label: const Text(
+                  //     'Save',
+                  //     style: TextStyle(
+                  //         fontWeight: FontWeight.w600,
+                  //         fontSize: 15,
+                  //         color: Colors.blueAccent
+                  //     ),
+                  //   ),
+                  //   icon: const Icon(
+                  //       Icons.save
+                  //   ),
+                  // ),
                 ],
               )
 

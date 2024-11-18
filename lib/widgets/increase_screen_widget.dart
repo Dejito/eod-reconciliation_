@@ -53,7 +53,7 @@ class IncreaseScreenWidget extends StatelessWidget {
                   titleText('BACK',fontWeight: FontWeight.w500, fontSize: 16,),
                   SizedBox(width: 3.w,),
                   const Icon(
-                    Icons.save,
+                    Icons.arrow_forward,
                     color: AppColors.primaryColor,
                   ),
                 ],
