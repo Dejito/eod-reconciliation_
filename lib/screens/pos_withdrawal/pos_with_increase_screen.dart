@@ -90,8 +90,8 @@ class PosWithIncreaseScreen extends StatelessWidget {
                     return Card(
                       elevation: 3,
                       child: Container(
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 12, horizontal: 10),
+                        margin: EdgeInsets.symmetric(
+                            vertical: 16.h, horizontal: 10.w),
                         padding: const EdgeInsets.all(12),
                         // decoration:   const BoxDecoration(
                         //     shape: BoxShape.circle,
