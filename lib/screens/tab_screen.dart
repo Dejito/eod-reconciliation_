@@ -33,9 +33,9 @@ class _TabScreenState extends State<TabScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_pages[selectedPageIndex]['title']),
-      ),
+      // appBar: AppBar(
+      //   title: Text(_pages[selectedPageIndex]['title']),
+      // ),
       // drawer: const MainDrawer(),
       body: _pages[selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
