@@ -1,3 +1,4 @@
+import 'package:eod_reconcilaton/screens/history.dart';
 import 'package:eod_reconcilaton/screens/total_profit/total_profit.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,8 @@ class _TabScreenState extends State<TabScreen> {
   final List<Map<String, dynamic>> _pages = [
     {'page': const Dashboard(), 'title': 'HOME'},
     {'page': const TotalProfit(), 'title': 'PROFITS'},
+    {'page': const History(), 'title': 'HISTORY'},
+
   ];
 
   void selectPage(int index) {
@@ -41,12 +44,16 @@ class _TabScreenState extends State<TabScreen> {
         // backgroundColor: Theme.of(context),
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.category),
+            icon: Icon(Icons.home),
             label: "HOME",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: "Favorites",
+            icon: Icon(Icons.attach_money),
+            label: "PROFIT",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: "HISTORY",
           ),
         ],
       ),

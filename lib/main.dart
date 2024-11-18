@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         builder: EasyLoading.init(),
         theme: ThemeData(
-          primaryColor: Colors.blueAccent,
+          primaryColor: const Color(0xFF00066D),
           fontFamily: 'Lato',
           buttonTheme: ButtonTheme.of(context).copyWith(
             buttonColor: Colors.blueAccent,
