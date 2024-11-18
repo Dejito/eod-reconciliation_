@@ -1,9 +1,13 @@
+import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TransactionsListviewItems extends StatelessWidget {
 
-  final String text;
-  const TransactionsListviewItems({super.key, required this.text});
+  final String amount;
+  final String charge;
+
+  const TransactionsListviewItems({super.key, required this.amount, required this.charge});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +19,22 @@ class TransactionsListviewItems extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           child: Column(
             children: [
-              Text(
-                '#$text',
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 18
-                ),
+              Row(
+                children: [
+                  titleText(
+                    '#$amount',
+                    textAlign: TextAlign.center,
+                      fontSize: 18
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 6.w),
+                    child: titleText(
+                        '#$amount',
+                        textAlign: TextAlign.center,
+                        fontSize: 18
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

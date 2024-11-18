@@ -120,7 +120,7 @@ Widget dashboardCard(BuildContext context) {
                   titleText("N5,000",
                       textAlign: TextAlign.center,
                       fontSize: 14.sp,
-                      bottomPadding: 6.h
+                      // bottomPadding: 6.h
                       // fontWeight: FontWeight.w400
                       ),
                   Row(
@@ -129,7 +129,7 @@ Widget dashboardCard(BuildContext context) {
                       titleText("See Breakdown",
                           textAlign: TextAlign.center,
                           fontSize: 12.sp,
-                          bottomPadding: 0.h,
+                          // bottomPadding: 0.h,
                           endPadding: 6.w
                           // fontWeight: FontWeight.w400
                           ),

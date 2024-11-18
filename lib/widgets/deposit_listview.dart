@@ -35,7 +35,7 @@ class DepositListView extends StatelessWidget {
                         size: 30,
                 ),),
                 child: TransactionsListviewItems(
-                  text: depo.deposit[i].toString()
+                  amount: depo.deposit[i].toString()
                 ),
               );
             },

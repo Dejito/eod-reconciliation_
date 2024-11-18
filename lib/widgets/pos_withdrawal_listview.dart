@@ -41,7 +41,7 @@ class PosWithdrawalListview extends StatelessWidget {
                 ),
               ),
               child: TransactionsListviewItems(
-                text:pos.transaction[i].toString(),
+                amount:pos.transaction[i].toString(),
               ),
             );
           },

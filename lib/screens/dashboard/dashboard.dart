@@ -13,26 +13,6 @@ class Dashboard extends StatelessWidget {
 
   const Dashboard({super.key});
 
-  Widget txCard({required String txType, required Function() onTap}) {
-    return InkWell(
-      onTap: onTap,
-      child: Card(
-        // color: Colors.blueAccent,
-        elevation: 3,
-        margin: const EdgeInsets.symmetric(vertical: 12),
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Text(
-            txType,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

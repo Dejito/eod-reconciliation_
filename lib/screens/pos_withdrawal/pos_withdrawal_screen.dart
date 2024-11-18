@@ -79,7 +79,7 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
               controller: _amountController,
               focusNode: _amountFocusNode,
               decoration: const InputDecoration(
-                label: Text('amount withdrawn'),
+                label: Text('Amount withdrawn'),
               ),
               onSubmitted: (_) {
                 FocusScope.of(context).requestFocus(_chargesFocusNode);
@@ -96,15 +96,15 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
               focusNode: _chargesFocusNode,
               controller: _chargeController,
               decoration: const InputDecoration(
-                label: Text('Charge fee'),
+                label: Text('Charge Fee'),
               ),
               keyboardType: TextInputType.number,
               onChanged: (value) {
                 _charges = value;
               },
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: 20.h,
             ),
             const PosWithdrawalListview(),
             Row(

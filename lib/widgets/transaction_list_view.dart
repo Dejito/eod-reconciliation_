@@ -39,7 +39,7 @@ class TransactionsListView extends StatelessWidget {
               ),
             ),
             child: TransactionsListviewItems(
-              text:txBrain.transaction[i].toString(),
+              amount:txBrain.transaction[i].toString(),
             ),
           );
         },
