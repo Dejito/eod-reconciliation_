@@ -32,3 +32,35 @@ Widget titleText(
     ),
   );
 }
+
+
+Widget buildAppBar({
+  required String title,
+  required String transactionsCount,
+}) {
+  return AppBar(
+    centerTitle: true,
+    title: Text(
+      title,
+      style: const TextStyle(fontWeight: FontWeight.bold),
+    ),
+    bottom: PreferredSize(
+      preferredSize: const Size.fromHeight(5.0), // Define the preferred size
+      child: Container(
+        color: Colors.grey,
+        height: 2,
+      ),
+    ),
+    actions: [
+      Padding(
+        padding: const EdgeInsets.only(right: 12.0),
+        child: Center(
+          child: Text(
+            transactionsCount,
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
+    ],
+  );
+}

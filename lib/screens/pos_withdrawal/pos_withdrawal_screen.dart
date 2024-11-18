@@ -1,6 +1,9 @@
 import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_with_increase_screen.dart';
+import 'package:eod_reconcilaton/utils/assets.dart';
+import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/pos_withdrawal_brain.dart';
@@ -37,17 +40,30 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
     final posBrain = Provider.of<PosWithdrawalBrain>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('POS Withdrawals'),
+        centerTitle: true,
+        title: const Text(
+          "POS Transactions",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(5.0),
+          // Define the preferred size
+          child: Container(
+            color: Colors.grey,
+            height: 2,
+          ),
+        ),
         actions: [
-          Container(
-            padding: const EdgeInsets.all(12),
-            child: CircleAvatar(
-              backgroundColor: Colors.blueAccent,
-              radius: 16,
-              child: Text(
-                '${posBrain.transaction.length}',
-                style: const TextStyle(color: Colors.white, fontSize: 16),
+          Padding(
+            padding: EdgeInsets.only(right: 12.w),
+            child: Container(
+              padding: EdgeInsets.all(6.w),
+              decoration: const BoxDecoration(
+                color: AppColors.primaryColor,
+                shape: BoxShape.circle,
               ),
+              child: titleText('${posBrain.transaction.length}',
+                  color: Colors.white),
             ),
           ),
         ],
@@ -56,6 +72,9 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
         margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: Column(
           children: [
+            SizedBox(
+              height: 12.h,
+            ),
             TextField(
               controller: _amountController,
               focusNode: _amountFocusNode,
@@ -77,7 +96,7 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
               focusNode: _chargesFocusNode,
               controller: _chargeController,
               decoration: const InputDecoration(
-                label: Text('charged fee'),
+                label: Text('Charge fee'),
               ),
               keyboardType: TextInputType.number,
               onChanged: (value) {
