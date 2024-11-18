@@ -42,6 +42,7 @@ class PosWithdrawalListview extends StatelessWidget {
               ),
               child: TransactionsListviewItems(
                 amount:pos.transaction[i].toString(),
+                charge: pos.increase[i].toString(),
               ),
             );
           },
