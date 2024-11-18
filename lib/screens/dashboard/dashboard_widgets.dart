@@ -9,7 +9,7 @@ Widget dashboardCard(BuildContext context) {
     clipBehavior: Clip.none,
     children: [
       Container(
-        height: 140.h,
+        height: 170.h,
         width: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
         decoration: BoxDecoration(
@@ -74,7 +74,7 @@ Widget dashboardCard(BuildContext context) {
         child: Container(
           width: MediaQuery.of(context).size.width * 0.83,
           // Constrain width
-          height: 100,
+          height: 138.h,
           padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 6),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -97,17 +97,55 @@ Widget dashboardCard(BuildContext context) {
               titleText(
                 "Cumulative Profit",
                 textAlign: TextAlign.center,
-               fontSize: 14.sp,
-                bottomPadding: 6.h
+               fontSize: 13.sp,
+                bottomPadding: 3.h
                 // fontWeight: FontWeight.w400
               ),
               titleText(
                   "N60,000",
                   textAlign: TextAlign.center,
                   fontSize: 14.sp,
-                  bottomPadding: 6.h
+                  bottomPadding: 8.h
                 // fontWeight: FontWeight.w400
               ),
+              titleText(
+                  "Total Profit Today",
+                  textAlign: TextAlign.center,
+                  fontSize: 13.sp,
+                  bottomPadding: 3.h
+                // fontWeight: FontWeight.w400
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  titleText(
+                      "N5,000",
+                      textAlign: TextAlign.center,
+                      fontSize: 14.sp,
+                      bottomPadding: 6.h
+                    // fontWeight: FontWeight.w400
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      titleText(
+                          "See Breakdown",
+                          textAlign: TextAlign.center,
+                          fontSize: 12.sp,
+                          bottomPadding: 0.h,
+                        endPadding: 6.w
+                        // fontWeight: FontWeight.w400
+                      ),
+                      Icon(
+                        Icons.chevron_right,
+                        // color: Colors.blue,
+                        size: 20.w,
+                      ),
+                    ],
+                  )
+                ],
+              )
+
             ],
           ),
         ),
