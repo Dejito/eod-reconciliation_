@@ -1,5 +1,6 @@
 import 'package:eod_reconcilaton/widgets/transactions_listview_items.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/pos_withdrawal_brain.dart';
@@ -27,7 +28,7 @@ class PosWithdrawalListview extends StatelessWidget {
                 pos.removeIncreaseDismissible(pos.increase[i]);
               },
               background: Container(
-                margin: const EdgeInsets.only(top: 6),
+                margin:  EdgeInsets.only(top: 16.h),
                 padding: const EdgeInsets.only(left: 12),
                 decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.error,
