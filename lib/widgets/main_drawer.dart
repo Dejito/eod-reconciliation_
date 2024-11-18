@@ -9,7 +9,7 @@ import '../providers/tf_withdrawal_brain.dart';
 import '../screens/deposits/deposit_increase_screen.dart';
 import '../screens/history.dart';
 import '../screens/pos_withdrawal/pos_with_increase_screen.dart';
-import '../screens/dashboard.dart';
+import '../screens/dashboard/dashboard.dart';
 import '../screens/total_profit/total_profit.dart';
 import '../screens/transfer_withdrawal/tx_with_increase_screen.dart';
 

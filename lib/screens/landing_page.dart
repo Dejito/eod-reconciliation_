@@ -1,4 +1,4 @@
-import 'package:eod_reconcilaton/screens/dashboard.dart';
+import 'package:eod_reconcilaton/screens/dashboard/dashboard.dart';
 import 'package:eod_reconcilaton/screens/tab_screen.dart';
 import 'package:eod_reconcilaton/widgets/loading_indicator.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';

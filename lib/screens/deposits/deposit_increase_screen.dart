@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../providers/deposit_brain.dart';
 import '../../widgets/increase_screen_widget.dart';
-import '../dashboard.dart';
+import '../dashboard/dashboard.dart';
 
 
 

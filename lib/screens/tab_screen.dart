@@ -2,7 +2,7 @@ import 'package:eod_reconcilaton/screens/history.dart';
 import 'package:eod_reconcilaton/screens/total_profit/total_profit.dart';
 import 'package:flutter/material.dart';
 
-import 'dashboard.dart';
+import 'dashboard/dashboard.dart';
 
 class TabScreen extends StatefulWidget {
 
