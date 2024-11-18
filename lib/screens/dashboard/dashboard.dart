@@ -15,7 +15,7 @@ class Dashboard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Card(
-        color: Colors.blueAccent,
+        // color: Colors.blueAccent,
         elevation: 3,
         margin: const EdgeInsets.symmetric(vertical: 12),
         child: Padding(
@@ -24,7 +24,7 @@ class Dashboard extends StatelessWidget {
             txType,
             textAlign: TextAlign.center,
             style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
           ),
         ),
       ),
@@ -34,6 +34,7 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         // elevation: 1,
@@ -62,36 +63,41 @@ class Dashboard extends StatelessWidget {
       drawer: const MainDrawer(),
       body: Container(
         margin: const EdgeInsets.all(16),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            dashboardCard(context),
-            const SizedBox(
-              height: 80,
-            ),
-            txCard(
-                txType: 'POS Transactions',
-                onTap: () {
-                  Navigator.of(context).pushNamed(POSWithdrawalScreen.id);
-                }),
-            txCard(
-                txType: 'Bank Transfer Withdrawals',
-                onTap: () {
-                  Navigator.of(context).pushNamed(TransferWithdrawalScreen.id);
-                }),
-            txCard(
-                txType: 'Deposits',
-                onTap: () {
-                  Navigator.of(context).pushNamed(DepositScreen.id);
-                }),
-            // Column(
-            //   mainAxisAlignment: MainAxisAlignment.end,
-            //   children: const [
-            //     Text('Select your transaction type')
-            //   ],
-            // )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              dashboardCard(context),
+              const SizedBox(
+                height: 80,
+              ),
+              transactionTypeButton(title: "POS Transactions", onTap: (){
+                Navigator.of(context).pushNamed(POSWithdrawalScreen.id);
+
+              }),
+              // txCard(
+              //     txType: 'POS Transactions',
+              //     onTap: () {
+              //       Navigator.of(context).pushNamed(POSWithdrawalScreen.id);
+              //     }),
+              // txCard(
+              //     txType: 'Bank Transfer Withdrawals',
+              //     onTap: () {
+              //       Navigator.of(context).pushNamed(TransferWithdrawalScreen.id);
+              //     }),
+              // txCard(
+              //     txType: 'Deposits',
+              //     onTap: () {
+              //       Navigator.of(context).pushNamed(DepositScreen.id);
+              //     }),
+              // Column(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: const [
+              //     Text('Select your transaction type')
+              //   ],
+              // )
+            ],
+          ),
         ),
       ),
     );

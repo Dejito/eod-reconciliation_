@@ -15,16 +15,17 @@ Widget dashboardCard(BuildContext context) {
         decoration: BoxDecoration(
           color: AppColors.primaryColor,
           borderRadius: BorderRadius.all(Radius.circular(12.w)),
-
         ),
         // color: ,
-        child:
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, // Align rows across the parent
-          crossAxisAlignment: CrossAxisAlignment.center, // Center children vertically
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // Align rows across the parent
+          crossAxisAlignment: CrossAxisAlignment.center,
+          // Center children vertically
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center, // Center children vertically within this Row
+              crossAxisAlignment: CrossAxisAlignment.center,
+              // Center children vertically within this Row
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,8 +47,10 @@ Widget dashboardCard(BuildContext context) {
                 const SizedBox(width: 12),
                 Column(
                   children: [
-                    SizedBox(height: 8.h,),
-                     Icon(
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Icon(
                       Icons.chevron_right,
                       color: Colors.white,
                       size: 28.w,
@@ -62,7 +65,6 @@ Widget dashboardCard(BuildContext context) {
                   Icons.notifications_none,
                   color: Colors.white,
                   size: 25.w,
-
                 ),
               ],
             ),
@@ -94,48 +96,43 @@ Widget dashboardCard(BuildContext context) {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              titleText(
-                "Cumulative Profit",
-                textAlign: TextAlign.center,
-               fontSize: 13.sp,
-                bottomPadding: 3.h
-                // fontWeight: FontWeight.w400
-              ),
-              titleText(
-                  "N60,000",
-                  textAlign: TextAlign.center,
-                  fontSize: 14.sp,
-                  bottomPadding: 8.h
-                // fontWeight: FontWeight.w400
-              ),
-              titleText(
-                  "Total Profit Today",
+              titleText("Cumulative Profit",
                   textAlign: TextAlign.center,
                   fontSize: 13.sp,
                   bottomPadding: 3.h
-                // fontWeight: FontWeight.w400
-              ),
+                  // fontWeight: FontWeight.w400
+                  ),
+              titleText("N60,000",
+                  textAlign: TextAlign.center,
+                  fontSize: 14.sp,
+                  bottomPadding: 8.h
+                  // fontWeight: FontWeight.w400
+                  ),
+              titleText("Total Profit Today",
+                  textAlign: TextAlign.center,
+                  fontSize: 13.sp,
+                  bottomPadding: 3.h
+                  // fontWeight: FontWeight.w400
+                  ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  titleText(
-                      "N5,000",
+                  titleText("N5,000",
                       textAlign: TextAlign.center,
                       fontSize: 14.sp,
                       bottomPadding: 6.h
-                    // fontWeight: FontWeight.w400
-                  ),
+                      // fontWeight: FontWeight.w400
+                      ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      titleText(
-                          "See Breakdown",
+                      titleText("See Breakdown",
                           textAlign: TextAlign.center,
                           fontSize: 12.sp,
                           bottomPadding: 0.h,
-                        endPadding: 6.w
-                        // fontWeight: FontWeight.w400
-                      ),
+                          endPadding: 6.w
+                          // fontWeight: FontWeight.w400
+                          ),
                       Icon(
                         Icons.chevron_right,
                         // color: Colors.blue,
@@ -145,11 +142,36 @@ Widget dashboardCard(BuildContext context) {
                   )
                 ],
               )
-
             ],
           ),
         ),
       )
     ],
+  );
+}
+
+Widget transactionTypeButton(
+    {required String title, required Function() onTap}) {
+  return Container(
+    decoration: BoxDecoration(
+      // color: Color(0xFFFEFEFE),
+      borderRadius: BorderRadius.all(Radius.circular(12)),
+      border: Border.all(color: Colors.black),
+    ),
+    padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
+    margin: EdgeInsets.symmetric(
+      vertical: 10.h,
+    ),
+    child: ListTile(
+      onTap: onTap,
+      title: titleText(
+        title,
+        fontSize: 16,
+      ),
+      trailing: Icon(
+        Icons.chevron_right,
+        size: 28.sp,
+      ),
+    ),
   );
 }
