@@ -67,7 +67,7 @@ class Dashboard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             dashboardCard(context),
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
             txCard(
