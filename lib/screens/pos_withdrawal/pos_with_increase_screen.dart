@@ -21,7 +21,7 @@ class PosWithIncreaseScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('POS Profit'),
+        title: titleText('POS Profit'),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(5.0),
           // Define the preferred size

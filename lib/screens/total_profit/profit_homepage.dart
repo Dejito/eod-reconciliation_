@@ -1,6 +1,7 @@
 import 'package:eod_reconcilaton/screens/dashboard/dashboard_widgets.dart';
 import 'package:eod_reconcilaton/screens/total_profit/total_profit.dart';
 import 'package:eod_reconcilaton/utils/assets.dart';
+import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +18,7 @@ class ProfitHomepage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Profits'),
+        title: titleText('Profits'),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(5.0),
           // Define the preferred size
