@@ -41,9 +41,9 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
+        title: titleText(
           "POS Transactions",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          // style: TextStyle(fontWeight: FontWeight.bold),
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(5.0),

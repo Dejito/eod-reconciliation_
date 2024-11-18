@@ -1,4 +1,5 @@
 import 'package:eod_reconcilaton/screens/transfer_withdrawal/tx_with_increase_screen.dart';
+import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +38,7 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
     final txBrain = Provider.of<TransactionBrain>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Transfer Withdrawal'),
+        title: titleText('Transfer Withdrawal'),
         actions: [
           Container(
             padding: const EdgeInsets.all(12),
