@@ -1,7 +1,9 @@
 import 'package:eod_reconcilaton/screens/dashboard/dashboard_widgets.dart';
 import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_withdrawal_screen.dart';
 import 'package:eod_reconcilaton/screens/transfer_withdrawal/transfer_withdrawal_screen.dart';
+import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../widgets/main_drawer.dart';
 import '../deposits/deposit_screen.dart';
@@ -71,31 +73,19 @@ class Dashboard extends StatelessWidget {
               const SizedBox(
                 height: 80,
               ),
+              titleText("Transaction Type"),
               transactionTypeButton(title: "POS Transactions", onTap: (){
                 Navigator.of(context).pushNamed(POSWithdrawalScreen.id);
+              }),
+              SizedBox(height: 20.h,),
+              transactionTypeButton(title: "Bank Transfer Withdrawal", onTap: (){
+                      Navigator.of(context).pushNamed(TransferWithdrawalScreen.id);
+              }),
+              SizedBox(height: 20.h,),
+              transactionTypeButton(title: "Deposits", onTap: (){
+                      Navigator.of(context).pushNamed(DepositScreen.id);
 
               }),
-              // txCard(
-              //     txType: 'POS Transactions',
-              //     onTap: () {
-              //       Navigator.of(context).pushNamed(POSWithdrawalScreen.id);
-              //     }),
-              // txCard(
-              //     txType: 'Bank Transfer Withdrawals',
-              //     onTap: () {
-              //       Navigator.of(context).pushNamed(TransferWithdrawalScreen.id);
-              //     }),
-              // txCard(
-              //     txType: 'Deposits',
-              //     onTap: () {
-              //       Navigator.of(context).pushNamed(DepositScreen.id);
-              //     }),
-              // Column(
-              //   mainAxisAlignment: MainAxisAlignment.end,
-              //   children: const [
-              //     Text('Select your transaction type')
-              //   ],
-              // )
             ],
           ),
         ),

@@ -152,25 +152,28 @@ Widget dashboardCard(BuildContext context) {
 
 Widget transactionTypeButton(
     {required String title, required Function() onTap}) {
-  return Container(
-    decoration: BoxDecoration(
-      // color: Color(0xFFFEFEFE),
-      borderRadius: BorderRadius.all(Radius.circular(12)),
-      border: Border.all(color: Colors.black),
-    ),
-    padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
-    margin: EdgeInsets.symmetric(
-      vertical: 10.h,
-    ),
-    child: ListTile(
-      onTap: onTap,
-      title: titleText(
-        title,
-        fontSize: 16,
+  return InkWell(
+    onTap: onTap,
+    child: Container(
+      decoration: BoxDecoration(
+        // color: Color(0xFFFEFEFE),
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        border: Border.all(color: Colors.black),
       ),
-      trailing: Icon(
-        Icons.chevron_right,
-        size: 28.sp,
+      padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
+      margin: EdgeInsets.symmetric(
+        vertical: 10.h,
+      ),
+      child: ListTile(
+        onTap: onTap,
+        title: titleText(
+          title,
+          fontSize: 15.sp,
+        ),
+        trailing: Icon(
+          Icons.chevron_right,
+          size: 28.sp,
+        ),
       ),
     ),
   );
