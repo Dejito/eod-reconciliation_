@@ -68,7 +68,7 @@ class TxWithIncreaseScreen extends StatelessWidget {
                 ),
               ),
               TextButton(onPressed: (){
-                Navigator.of(context).pushReplacementNamed(SelectionScreen.id);
+                Navigator.of(context).pushReplacementNamed(Dashboard.id);
               }, child: const Text('Return'))
             ]
           )

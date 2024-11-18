@@ -43,7 +43,7 @@ class PosWithIncreaseScreen extends StatelessWidget {
             },
             itemCount: pos.increase.length,
         ),
-        pageNavigator: SelectionScreen.id,
+        pageNavigator: Dashboard.id,
 
       ),
     );

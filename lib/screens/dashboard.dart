@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import '../widgets/main_drawer.dart';
 import 'deposits/deposit_screen.dart';
 
-class SelectionScreen extends StatelessWidget {
+class Dashboard extends StatelessWidget {
   static const id = 'selection_screen';
 
-  const SelectionScreen({super.key});
+  const Dashboard({super.key});
 
   Widget txCard ({required String txType, required Function() onTap}) {
     return InkWell(

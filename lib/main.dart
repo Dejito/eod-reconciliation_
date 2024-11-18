@@ -16,7 +16,7 @@ import 'package:eod_reconcilaton/screens/transfer_withdrawal/tx_with_increase_sc
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
-
+import 'package:eod_reconcilaton/screens/tab_screen.dart';
 
 
 void main() async{
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         home: const LandingPage(),
         routes: {
           LandingPage.id: (context) => const LandingPage(),
-          SelectionScreen.id: (context) => const SelectionScreen(),
+          Dashboard.id: (context) => const Dashboard(),
           TransferWithdrawalScreen.id: (context) => const TransferWithdrawalScreen(),
           TxWithIncreaseScreen.id: (context) => const TxWithIncreaseScreen(),
           POSWithdrawalScreen.id: (context) =>  const POSWithdrawalScreen(),
@@ -64,6 +64,7 @@ class MyApp extends StatelessWidget {
           DepositIncreaseScreen.id: (context) => const DepositIncreaseScreen(),
           TotalProfit.id: (context) => const TotalProfit(),
           History.id: (context) => const History(),
+          TabScreen.id: (context) => const TabScreen()
         },
       ),
     );

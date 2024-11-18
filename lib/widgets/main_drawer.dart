@@ -63,7 +63,7 @@ class MainDrawer extends StatelessWidget {
               txType: 'Home',
               icon: Icons.home_outlined,
               onTap: (){
-                Navigator.of(context).pushNamed(SelectionScreen.id);
+                Navigator.of(context).pushNamed(Dashboard.id);
               },
             ),
             const Divider(thickness: 1,),

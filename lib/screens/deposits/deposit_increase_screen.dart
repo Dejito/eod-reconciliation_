@@ -45,7 +45,7 @@ class DepositIncreaseScreen extends StatelessWidget {
                     );
                   },
                   itemCount: depo.deposit.length,
-                ), pageNavigator: SelectionScreen.id,
+                ), pageNavigator: Dashboard.id,
           ),
     );
   }
