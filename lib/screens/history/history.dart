@@ -16,6 +16,23 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
+
+  bool isLoaded = false;
+
+  @override
+  void didChangeDependencies() async {
+
+    if(!isLoaded) {
+      await Provider.of<TransactionBrain>(context, listen: false).fetchAndSetData();
+      await Provider.of<PosWithdrawalBrain>(context,listen: false).fetchAndSetIncrease();
+      await Provider.of<DepositBrain>(context, listen: false).fetchAndSetData();
+      await Provider.of<ProfitDatabase>(context, listen: false).fetchAndSetData();
+      Navigator.of(context).pushNamed(History.id);
+    }
+    isLoaded = true;
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     final pos = Provider.of<PosWithdrawalBrain>(context, listen: false);

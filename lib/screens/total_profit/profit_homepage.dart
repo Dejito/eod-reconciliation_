@@ -1,7 +1,12 @@
 import 'package:eod_reconcilaton/screens/dashboard/dashboard_widgets.dart';
+import 'package:eod_reconcilaton/screens/total_profit/total_profit.dart';
 import 'package:eod_reconcilaton/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../deposits/deposit_increase_screen.dart';
+import '../pos_withdrawal/pos_with_increase_screen.dart';
+import '../transfer_withdrawal/tx_with_increase_screen.dart';
 
 class ProfitHomepage extends StatelessWidget {
 
@@ -27,10 +32,15 @@ class ProfitHomepage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(
+                height: 20.h,
+              ),
               transactionTypeButton(
                 title: "POS Profit",
                 isProfitScreen: true,
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(PosWithIncreaseScreen.id);
+                },
               ),
               SizedBox(
                 height: 20.h,
@@ -38,7 +48,9 @@ class ProfitHomepage extends StatelessWidget {
               transactionTypeButton(
                 title: "Transfer Withdrawal Profit",
                 isProfitScreen: true,
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(TxWithIncreaseScreen.id);
+                },
               ),
               SizedBox(
                 height: 20.h,
@@ -46,7 +58,9 @@ class ProfitHomepage extends StatelessWidget {
               transactionTypeButton(
                 title: "POS Profit",
                 isProfitScreen: true,
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(DepositIncreaseScreen.id);
+                },
               ),
               SizedBox(
                 height: 20.h,
@@ -54,7 +68,9 @@ class ProfitHomepage extends StatelessWidget {
               transactionTypeButton(
                 title: "Total Profit",
                 isProfitScreen: true,
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(TotalProfit.id);
+                },
               ),
             ],
           ),
