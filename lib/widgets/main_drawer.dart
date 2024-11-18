@@ -13,14 +13,13 @@ import '../providers/tf_withdrawal_brain.dart';
 import '../screens/deposits/deposit_increase_screen.dart';
 import '../screens/history/history.dart';
 import '../screens/pos_withdrawal/pos_with_increase_screen.dart';
-import '../screens/dashboard/dashboard.dart';
 import '../screens/total_profit/total_profit.dart';
 import '../screens/transfer_withdrawal/tx_with_increase_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
 
-  Widget listTile({required Function() onTap, required String txType, required IconData icon}) {
+  Widget customListTile({required Function() onTap, required String txType, required IconData icon}) {
     return ListTile(
       leading:  Icon(
           icon,
@@ -60,7 +59,7 @@ class MainDrawer extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            listTile(
+            customListTile(
               txType: 'Home',
               icon: Icons.home_outlined,
               onTap: (){
@@ -68,7 +67,7 @@ class MainDrawer extends StatelessWidget {
               },
             ),
             const Divider(thickness: 1,),
-            listTile(
+            customListTile(
                 txType: 'POS Profit',
                 icon: Icons.point_of_sale,
                 onTap: (){
@@ -76,7 +75,7 @@ class MainDrawer extends StatelessWidget {
             },
             ),
             const Divider(thickness: 1,),
-            listTile(
+            customListTile(
               txType: 'Transfer Withdrawal Profit',
               icon: Icons.money,
               onTap: (){
@@ -84,7 +83,7 @@ class MainDrawer extends StatelessWidget {
               },
             ),
             const Divider(thickness: 1,),
-            listTile(
+            customListTile(
               txType: 'Deposit Profit',
               icon: Icons.monetization_on,
               onTap: (){
@@ -93,16 +92,15 @@ class MainDrawer extends StatelessWidget {
             ),
             const Divider(thickness: 1,),
 
-            listTile(
+            customListTile(
               txType: 'Total Profit ',
               icon: Icons.calculate_outlined,
               onTap: (){
                 Navigator.of(context).pushNamed(TotalProfit.id);
               },
             ),
-
             const Divider(thickness: 1,),
-            listTile(
+            customListTile(
               txType: 'History',
               icon: Icons.history,
               onTap: () async {
@@ -113,6 +111,15 @@ class MainDrawer extends StatelessWidget {
                   await Provider.of<ProfitDatabase>(context, listen: false).fetchAndSetData();
                   Navigator.of(context).pushNamed(History.id);
                 }
+              },
+            ),
+            const Divider(thickness: 1,),
+            customListTile(
+              txType: 'Logout',
+              icon: Icons.logout,
+              onTap: (){
+
+                // Navigator.of(context).pushNamed(TotalProfit.id);
               },
             ),
             const Divider(thickness: 1,),

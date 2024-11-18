@@ -1,6 +1,5 @@
 import 'package:eod_reconcilaton/screens/history/history.dart';
 import 'package:eod_reconcilaton/screens/total_profit/profit_homepage.dart';
-import 'package:eod_reconcilaton/screens/total_profit/total_profit.dart';
 import 'package:flutter/material.dart';
 
 import 'dashboard/dashboard.dart';

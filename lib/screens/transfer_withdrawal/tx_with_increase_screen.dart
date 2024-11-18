@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import '../../providers/tf_withdrawal_brain.dart';
 import '../../utils/widgets.dart';
 import '../../widgets/increase_screen_widget.dart';
-import '../dashboard/dashboard.dart';
 
 class TxWithIncreaseScreen extends StatelessWidget {
   static const id = 'tx_with_increase_screen';

@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '../../providers/pos_withdrawal_brain.dart';
 import '../../widgets/increase_screen_widget.dart';
-import '../dashboard/dashboard.dart';
 import '../tab_screen.dart';
 
 class PosWithIncreaseScreen extends StatelessWidget {
