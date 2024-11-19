@@ -10,7 +10,9 @@ class TransactionBrain extends ChangeNotifier {
 
    final List<int> _increase = [];
 
-   List<Increase> _databaseTransactions = [];
+  final List<int> _charges = [];
+
+  List<Increase> _databaseTransactions = [];
 
   List<Increase> get databaseTransactions {
     return [..._databaseTransactions];
@@ -22,6 +24,10 @@ class TransactionBrain extends ChangeNotifier {
 
   List<int> get increase {
     return [..._increase];
+  }
+
+  List<int> get charges {
+    return [..._charges];
   }
 
   void saveToDb (){
@@ -41,6 +47,11 @@ class TransactionBrain extends ChangeNotifier {
 
   void addTransaction (int tx) {
     _transactions.add(tx);
+    notifyListeners();
+  }
+
+  void addCharges (int charge) {
+    _charges.add(charge);
     notifyListeners();
   }
 
