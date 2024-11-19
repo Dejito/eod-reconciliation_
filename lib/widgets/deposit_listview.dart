@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import '../providers/deposit_brain.dart';
 
 class DepositListView extends StatelessWidget {
-  const DepositListView({Key? key}) : super(key: key);
+  const DepositListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class DepositListView extends StatelessWidget {
             direction: DismissDirection.startToEnd,
             onDismissed: (dismissed) {
               depo.removeTransDismissible(depo.deposit[i]);
-              depo.removeIncreaseDismissible(depo.increase[i]);
+              depo.removeIncreaseDismissible(depo.charges[i]);
             },
             background: Container(
               margin: const EdgeInsets.only(top: 3),
@@ -35,7 +35,7 @@ class DepositListView extends StatelessWidget {
             ),
             child: TransactionsListviewItems(
               amount: depo.deposit[i].toString(),
-              charge: depo.increase[i].toString(),
+              charge: depo.charges[i].toString(),
             ),
           );
         },

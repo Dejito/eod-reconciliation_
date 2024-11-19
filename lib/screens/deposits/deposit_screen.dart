@@ -106,7 +106,7 @@ class _DepositScreenState extends State<DepositScreen> {
                     int? increase = depoBrain.calcProfit(chargedFee!);
                     //add to list
                     depoBrain.addIncrease(increase!);
-                    depoBrain.
+                    depoBrain.addCharges(chargedFee);
                     _charges = '';
                     _deposit = '';
                     _depositController.clear();
