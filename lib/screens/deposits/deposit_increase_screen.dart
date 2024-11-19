@@ -76,29 +76,6 @@ class DepositIncreaseScreen extends StatelessWidget {
           pageNavigator: TabScreen.id,
         ),
       ),
-
-
-      // : IncreaseScreenWidget(
-          // hintText: '#20 is deducted for processing fee',
-          // increaseFigure: inc,
-          // listViewBuilder:
-          //       ListView.builder(
-          //         itemBuilder: (context, i) {
-          //           return Card(
-          //             color: Colors.grey.shade400,
-          //             child: Container(
-          //               margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          //               padding: const EdgeInsets.all(5),
-          //               child: Text(
-          //                 '${depo.deposit[i]} gives ${depo.increase[i]} profit',
-          //                 textAlign: TextAlign.center,
-          //               ),
-          //             ),
-          //           );
-          //         },
-          //         itemCount: depo.deposit.length,
-          //       ), pageNavigator: Dashboard.id,
-          // ),
     );
   }
 }

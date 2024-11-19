@@ -22,7 +22,7 @@ class TransactionsListView extends StatelessWidget {
             direction: DismissDirection.startToEnd,
             onDismissed: (dismissDirection){
               txBrain.removeByDismissible(txBrain.transaction[i]);
-              txBrain.removeByDismissibleIncrease(txBrain.increase[i]);
+              txBrain.removeByDismissibleIncrease(txBrain.cha[i]);
             },
             background: Container(
               margin: const EdgeInsets.only(top: 3),

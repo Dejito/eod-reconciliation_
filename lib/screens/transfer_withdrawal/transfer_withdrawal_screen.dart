@@ -139,52 +139,6 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
               height: 15,
             ),
             const TransactionsListView(),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   children: [
-            //     buildTextButton(
-            //       onPressed: () {
-            //
-            //       },
-            //       label: 'Add transaction',
-            //     ),
-            //     buildTextButton(
-            //       onPressed: () {
-            //         txBrain.removeTransaction();
-            //         txBrain.removeIncrease();
-            //       },
-            //       label: 'Undo add',
-            //     ),
-                // TextButton(
-                //     onPressed: () {
-                //       if (_chargeFee.isEmpty || _txAmount.isEmpty) {
-                //         return;
-                //       }
-                //       //add to transaction list
-                //       txBrain.addTransaction(int.parse(_txAmount));
-                //       //convert string of amount withdrawn to int
-                //       int? chargesValue = int.tryParse(_chargeFee);
-                //       //put calculate result method here
-                //       int? increase = txBrain
-                //           .calculateTransferWithdrawalIncrease(chargesValue!);
-                //       //add the increase to a list
-                //       txBrain.addIncrease(increase!);
-                //
-                //       _amountController.clear();
-                //       _chargesController.clear();
-                //       _txAmount = '';
-                //       _chargeFee = '';
-                //       FocusScope.of(context).requestFocus(_amountFocusNode);
-                //     },
-                //     child: const Text('Add transaction')),
-                // TextButton(
-                //     onPressed: () {
-                //       txBrain.removeTransaction();
-                //       txBrain.removeIncrease();
-                //     },
-                //     child: const Text('Undo add')),
-            //   ],
-            // ),
             buildElevatedButton2(
               onPressed: () {
                 if (txBrain.transaction.isEmpty) {
