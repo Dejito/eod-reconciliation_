@@ -109,7 +109,7 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
                 int? increase = txBrain
                     .calculateTransferWithdrawalIncrease(chargesValue!);
                 //add the increase to a list
-                txBrain.addIncrease(increase!);
+                txBrain.addCharges(chargesValue!);
 
                 _amountController.clear();
                 _chargesController.clear();
