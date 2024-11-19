@@ -22,7 +22,7 @@ class TransactionsListView extends StatelessWidget {
             direction: DismissDirection.startToEnd,
             onDismissed: (dismissDirection){
               txBrain.removeByDismissible(txBrain.transaction[i]);
-              txBrain.removeByDismissibleIncrease(txBrain.cha[i]);
+              txBrain.removeByDismissibleIncrease(txBrain.charges[i]);
             },
             background: Container(
               margin: const EdgeInsets.only(top: 3),
@@ -40,8 +40,11 @@ class TransactionsListView extends StatelessWidget {
             ),
             child: TransactionsListviewItems(
               amount:txBrain.transaction[i].toString(),
-              charge: txBrain.increase[i].toString(),
-              onDelete: (){},
+              charge: txBrain.charges[i].toString(),
+              onDelete: (){
+                txBrain.removeByDismissible(txBrain.transaction[i]);
+                txBrain.removeByDismissibleIncrease(txBrain.charges[i]);
+              },
             ),
           );
         },
