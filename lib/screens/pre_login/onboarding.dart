@@ -113,7 +113,7 @@ class OnboardingScreenState extends State<OnboardingScreen>
                           var key = entry.key;
                           return Padding(
                               padding:
-                                  EdgeInsets.only(right: 12.0.w, bottom: 12.h),
+                                  EdgeInsets.only(right: 12.0.w, bottom: 20.h),
                               child: DotIndicator(
                                   isActive:
                                       _currentIndex == key ? true : false));
@@ -124,6 +124,7 @@ class OnboardingScreenState extends State<OnboardingScreen>
                         gotoLoginScreen();
                       },
                       label: "Get Started",
+                      enabledButton: index == 1
                     ),
                   ],
                 );
