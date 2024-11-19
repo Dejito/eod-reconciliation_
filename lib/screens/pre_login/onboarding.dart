@@ -1,5 +1,7 @@
 import 'package:eod_reconcilaton/screens/login_screen.dart';
 import 'package:eod_reconcilaton/screens/pre_login/widget/dot_indicator.dart';
+import 'package:eod_reconcilaton/utils/assets.dart';
+import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'model/onboarding_model.dart';
 
 class OnboardingScreen extends StatefulWidget {
-
   static const id = 'onboarding';
 
   const OnboardingScreen({super.key});
@@ -19,8 +20,10 @@ class OnboardingScreen extends StatefulWidget {
 class OnboardingScreenState extends State<OnboardingScreen>
     with SingleTickerProviderStateMixin {
   late int totalPages = OnBoardingItems.loadOnboardItem().length;
+
   //Page view controller to controller onboarding slide
   PageController controller = PageController();
+
   //Initial start of page view
   int _currentIndex = 0;
 
@@ -47,76 +50,127 @@ class OnboardingScreenState extends State<OnboardingScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Positioned.fill(
-            child: PageView.builder(
-                scrollDirection: Axis.horizontal,
-                controller: controller,
-                itemCount: totalPages,
-                onPageChanged: _onPageChanged,
-                itemBuilder: (context, index) {
-                  OnBoardingItem item =
-                  OnBoardingItems.loadOnboardItem()[index];
-                  return Stack(
-                    children: [
-                      Image.asset(
-                        item.image,
-                        fit: BoxFit.fill,
-                        width: double.infinity,
-                        height: MediaQuery.of(context).size.height,
-                      ),
-                      Positioned(
-                          left: 20.w,
-                          top: 493.h,
-                          right: 20.w,
-                          child: Center(
-                            child: Text(item.title!,
-                                style: GoogleFonts.roboto(
-                                    fontSize: 24.sp,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white),
-                                textAlign: TextAlign.center),
-                          )),
-                    ],
-                  );
-                }),
-          ),
-          Positioned(
-            left: 20.w,
-            right: 20.w,
-            bottom: 60.h,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: OnBoardingItems.loadOnboardItem()
-                        .asMap()
-                        .entries
-                        .map((entry) {
-                      var key = entry.key;
-                      return Padding(
-                          padding: EdgeInsets.only(right: 12.0.w, bottom: 71.h),
-                          child: DotIndicator(
-                              isActive: _currentIndex == key ? true : false));
-                    }).toList()),
-                // IAmAliveButton(
-                //   height: 52.h,
-                //   width: 320.w,
-                //   text: _currentIndex != totalPages - 1
-                //       ? S.of(context).next
-                //       : S.of(context).getStarted,
-                //   fontSize: 16.sp,
-                //   onPressed: () => goOnboardingWidget(),
-                // )
-              ],
-            ),
-          ),
+          PageView.builder(
+              scrollDirection: Axis.horizontal,
+              controller: controller,
+              itemCount: totalPages,
+              onPageChanged: _onPageChanged,
+              itemBuilder: (context, index) {
+                OnBoardingItem item = OnBoardingItems.loadOnboardItem()[index];
+                return Column(
+                  children: [
+                    Image.asset(
+                      item.image,
+                      fit: BoxFit.fill,
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height,
+                    ),
+                    buildElevatedButton2(
+                        onPressed: () {
+                          goOnboardingWidget();
+                        },
+                        label: "Get Started")
+                  ],
+                );
+              }),
         ],
       ),
+      // body: Stack(
+      //   children: [
+      //     Positioned.fill(
+      //       child: PageView.builder(
+      //           scrollDirection: Axis.horizontal,
+      //           controller: controller,
+      //           itemCount: totalPages,
+      //           onPageChanged: _onPageChanged,
+      //           itemBuilder: (context, index) {
+      //             OnBoardingItem item =
+      //             OnBoardingItems.loadOnboardItem()[index];
+      //             return Column(
+      //               children: [
+      //                 Image.asset(
+      //                   item.image,
+      //                   // fit: BoxFit.fitHeight,
+      //                   height: 300.h,
+      //                   width: 300.w,
+      //                 ),
+      //
+      //               ],
+      //
+      //             //   Stack(
+      //             //   children: [
+      //             //     Image.asset(
+      //             //       item.image,
+      //             //       fit: BoxFit.fill,
+      //             //       width: double.infinity,
+      //             //       height: MediaQuery.of(context).size.height,
+      //             //     ),
+      //             //     Positioned(
+      //             //         left: 20.w,
+      //             //         top: 493.h,
+      //             //         right: 20.w,
+      //             //         child: Center(
+      //             //           child: Text(item.title!,
+      //             //               style: GoogleFonts.roboto(
+      //             //                   fontSize: 24.sp,
+      //             //                   fontWeight: FontWeight.w700,
+      //             //                   color: AppColors.primaryColor),
+      //             //               textAlign: TextAlign.center),
+      //             //         )),
+      //             //   ],
+      //             );
+      //           }),
+      //     ),
+      //     // Positioned(
+      //     //   left: 20.w,
+      //     //   right: 20.w,
+      //     //   bottom: 60.h,
+      //     //   child:
+      //       Column(
+      //         mainAxisSize: MainAxisSize.max,
+      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //         children: [
+      //           Row(
+      //               mainAxisSize: MainAxisSize.min,
+      //               mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //               children: OnBoardingItems.loadOnboardItem()
+      //                   .asMap()
+      //                   .entries
+      //                   .map((entry) {
+      //                 var key = entry.key;
+      //                 return Padding(
+      //                     padding: EdgeInsets.only(right: 12.0.w, bottom: 71.h),
+      //                     child: DotIndicator(
+      //                         isActive: _currentIndex == key ? true : false));
+      //               }).toList()),
+      //           buildElevatedButton2(
+      //               onPressed: (){
+      //                 goOnboardingWidget();
+      //               }, label: "Get Started")
+      //           // buildElevatedButton(
+      //           //     onPressed: onPressed,
+      //           //     label: label,
+      //           //     buttonColor: AppColors.primaryColor,
+      //           //     borderColor: AppColors.primaryColor,
+      //           //     textColor: textColor
+      //           // )
+      //           // IAmAliveButton(
+      //           //   height: 52.h,
+      //           //   width: 320.w,
+      //           //   text: _currentIndex != totalPages - 1
+      //           //       ? S.of(context).next
+      //           //       : S.of(context).getStarted,
+      //           //   fontSize: 16.sp,
+      //           //   onPressed: () => goOnboardingWidget(),
+      //           // )
+      //         ],
+      //       ),
+      //     // ),
+      //   ],
+      // ),
     );
   }
 
