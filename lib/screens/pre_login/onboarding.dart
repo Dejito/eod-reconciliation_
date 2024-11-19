@@ -1,6 +1,7 @@
 import 'package:eod_reconcilaton/screens/login_screen.dart';
 import 'package:eod_reconcilaton/screens/pre_login/widget/dot_indicator.dart';
 import 'package:eod_reconcilaton/utils/assets.dart';
+import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,13 +48,22 @@ class OnboardingScreenState extends State<OnboardingScreen>
     });
   }
 
+  final List subtitleText = [
+    ",,,profitability made easy",
+    " ...one transaction at a time"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+        body: Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          PageView.builder(
+          Expanded(
+            // Constrain the height of PageView.builder
+            child: PageView.builder(
               scrollDirection: Axis.horizontal,
               controller: controller,
               itemCount: totalPages,
@@ -61,120 +71,72 @@ class OnboardingScreenState extends State<OnboardingScreen>
               itemBuilder: (context, index) {
                 OnBoardingItem item = OnBoardingItems.loadOnboardItem()[index];
                 return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Expanded(child: Container()),
+
                     Image.asset(
                       item.image,
                       fit: BoxFit.fill,
-                      width: double.infinity,
-                      height: MediaQuery.of(context).size.height,
+                      // width: 400,
+                      // height: 400,
                     ),
+                    Text(
+                      "EOD RECONCILIATION",
+                      style: GoogleFonts.oleoScript(
+                        fontSize: 25.sp,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.primaryColor,
+                      ),
+                      // selectionColor: color,
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                        subtitleText[index],
+                      style: GoogleFonts.alegreya(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500
+                      ),
+                    ),
+
+                    Expanded(child: Container()),
+                    // SizedBox(
+                    //   height: 30.h,
+                    // ),
+                    Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: OnBoardingItems.loadOnboardItem()
+                            .asMap()
+                            .entries
+                            .map((entry) {
+                          var key = entry.key;
+                          return Padding(
+                              padding:
+                                  EdgeInsets.only(right: 12.0.w, bottom: 12.h),
+                              child: DotIndicator(
+                                  isActive:
+                                      _currentIndex == key ? true : false));
+                        }).toList()),
+
                     buildElevatedButton2(
-                        onPressed: () {
-                          goOnboardingWidget();
-                        },
-                        label: "Get Started")
+                      onPressed: () {
+                        gotoLoginScreen();
+                      },
+                      label: "Get Started",
+                    ),
                   ],
                 );
-              }),
+              },
+            ),
+          ),
         ],
       ),
-      // body: Stack(
-      //   children: [
-      //     Positioned.fill(
-      //       child: PageView.builder(
-      //           scrollDirection: Axis.horizontal,
-      //           controller: controller,
-      //           itemCount: totalPages,
-      //           onPageChanged: _onPageChanged,
-      //           itemBuilder: (context, index) {
-      //             OnBoardingItem item =
-      //             OnBoardingItems.loadOnboardItem()[index];
-      //             return Column(
-      //               children: [
-      //                 Image.asset(
-      //                   item.image,
-      //                   // fit: BoxFit.fitHeight,
-      //                   height: 300.h,
-      //                   width: 300.w,
-      //                 ),
-      //
-      //               ],
-      //
-      //             //   Stack(
-      //             //   children: [
-      //             //     Image.asset(
-      //             //       item.image,
-      //             //       fit: BoxFit.fill,
-      //             //       width: double.infinity,
-      //             //       height: MediaQuery.of(context).size.height,
-      //             //     ),
-      //             //     Positioned(
-      //             //         left: 20.w,
-      //             //         top: 493.h,
-      //             //         right: 20.w,
-      //             //         child: Center(
-      //             //           child: Text(item.title!,
-      //             //               style: GoogleFonts.roboto(
-      //             //                   fontSize: 24.sp,
-      //             //                   fontWeight: FontWeight.w700,
-      //             //                   color: AppColors.primaryColor),
-      //             //               textAlign: TextAlign.center),
-      //             //         )),
-      //             //   ],
-      //             );
-      //           }),
-      //     ),
-      //     // Positioned(
-      //     //   left: 20.w,
-      //     //   right: 20.w,
-      //     //   bottom: 60.h,
-      //     //   child:
-      //       Column(
-      //         mainAxisSize: MainAxisSize.max,
-      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //         children: [
-      //           Row(
-      //               mainAxisSize: MainAxisSize.min,
-      //               mainAxisAlignment: MainAxisAlignment.spaceAround,
-      //               children: OnBoardingItems.loadOnboardItem()
-      //                   .asMap()
-      //                   .entries
-      //                   .map((entry) {
-      //                 var key = entry.key;
-      //                 return Padding(
-      //                     padding: EdgeInsets.only(right: 12.0.w, bottom: 71.h),
-      //                     child: DotIndicator(
-      //                         isActive: _currentIndex == key ? true : false));
-      //               }).toList()),
-      //           buildElevatedButton2(
-      //               onPressed: (){
-      //                 goOnboardingWidget();
-      //               }, label: "Get Started")
-      //           // buildElevatedButton(
-      //           //     onPressed: onPressed,
-      //           //     label: label,
-      //           //     buttonColor: AppColors.primaryColor,
-      //           //     borderColor: AppColors.primaryColor,
-      //           //     textColor: textColor
-      //           // )
-      //           // IAmAliveButton(
-      //           //   height: 52.h,
-      //           //   width: 320.w,
-      //           //   text: _currentIndex != totalPages - 1
-      //           //       ? S.of(context).next
-      //           //       : S.of(context).getStarted,
-      //           //   fontSize: 16.sp,
-      //           //   onPressed: () => goOnboardingWidget(),
-      //           // )
-      //         ],
-      //       ),
-      //     // ),
-      //   ],
-      // ),
-    );
+    )
+        );
   }
 
-  void goOnboardingWidget() {
+  void gotoLoginScreen() {
     // LocalStorageUtils.write(AppConstants.isUserFirstTime, 'true');
     if (_currentIndex < totalPages - 1) {
       _currentIndex++;

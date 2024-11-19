@@ -42,7 +42,9 @@ Widget buildElevatedButton2(
     {required Function() onPressed,
     required String label,
     Color buttonColor = AppColors.primaryColor,
-    Color textColor = Colors.white}) {
+    Color textColor = Colors.white,
+    bool enabledButton = true
+    }) {
   return ElevatedButton(
     style: ButtonStyle(
       elevation: MaterialStateProperty.resolveWith<double>((states) => 0),
@@ -65,7 +67,7 @@ Widget buildElevatedButton2(
         },
       ),
     ),
-    onPressed: onPressed,
+    onPressed: enabledButton ? onPressed : null,
     child: Text(
       label,
       style: TextStyle(
