@@ -139,22 +139,22 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
               height: 15,
             ),
             const TransactionsListView(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                buildTextButton(
-                  onPressed: () {
-
-                  },
-                  label: 'Add transaction',
-                ),
-                buildTextButton(
-                  onPressed: () {
-                    txBrain.removeTransaction();
-                    txBrain.removeIncrease();
-                  },
-                  label: 'Undo add',
-                ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     buildTextButton(
+            //       onPressed: () {
+            //
+            //       },
+            //       label: 'Add transaction',
+            //     ),
+            //     buildTextButton(
+            //       onPressed: () {
+            //         txBrain.removeTransaction();
+            //         txBrain.removeIncrease();
+            //       },
+            //       label: 'Undo add',
+            //     ),
                 // TextButton(
                 //     onPressed: () {
                 //       if (_chargeFee.isEmpty || _txAmount.isEmpty) {
@@ -183,8 +183,8 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
                 //       txBrain.removeIncrease();
                 //     },
                 //     child: const Text('Undo add')),
-              ],
-            ),
+            //   ],
+            // ),
             buildElevatedButton2(
               onPressed: () {
                 if (txBrain.transaction.isEmpty) {
