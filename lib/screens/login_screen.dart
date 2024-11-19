@@ -101,19 +101,6 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
 
-              // buildElevatedButton(
-              //     onPressed: () async {
-              //       showLoadingIndicator();
-              //       // await Future.delayed(const Duration(seconds: 2));
-              //       dismissLoadingIndicator();
-              //       if (context.mounted) {
-              //         Navigator.of(context).pushReplacementNamed(TabScreen.id);
-              //       }
-              //     },
-              //     label: "Login",
-              //     buttonColor: AppColors.primaryColor,
-              //     textColor: Colors.white,
-              //     borderColor: Colors.transparent),
               const SizedBox(
                 height: 20,
               ),

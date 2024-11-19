@@ -20,7 +20,7 @@ class Dashboard extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         // elevation: 1,
-        title: const Text('Dashboard'),
+        title: titleText('Dashboard', fontSize: 18),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(5.0),
           child: Container(
