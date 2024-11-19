@@ -25,7 +25,7 @@ class PosWithdrawalListview extends StatelessWidget {
               direction: DismissDirection.startToEnd,
               onDismissed: (dismissed){
                 pos.removeTransDismissible(pos.transaction[i]);
-                pos.removeIncreaseDismissible(pos.increase[i]);
+                pos.removeIncreaseDismissible(pos.charges[i]);
               },
               background: Container(
                 margin:  EdgeInsets.only(top: 16.h),
@@ -43,8 +43,11 @@ class PosWithdrawalListview extends StatelessWidget {
               ),
               child: TransactionsListviewItems(
                 amount:pos.transaction[i].toString(),
-                charge: pos.increase[i].toString(),
-                onDelete: (){},
+                charge: pos.charges[i].toString(),
+                onDelete: (){
+                  pos.removeTransDismissible(pos.transaction[i]);
+                  pos.removeIncreaseDismissible(pos.charges[i]);
+                },
               ),
             );
           },

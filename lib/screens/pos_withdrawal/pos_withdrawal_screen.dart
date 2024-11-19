@@ -120,6 +120,7 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
                 double increase = amountCharged! - posCharges!;
                 //store the increase to a list
                 posBrain.addIncrease(increase);
+                posBrain.addCharges(amountCharged);
                 _charges = '';
                 _amountWithdrawn = '';
                 _amountController.clear();
@@ -154,7 +155,7 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
                   return;
                 }
                 _chargesFocusNode.unfocus();
-                // final totalIncrease = posBrain.sumOfIncreaseValue;
+                posBrain.sumOfIncreaseValue;
                 Navigator.of(context).pushNamed(
                   PosWithIncreaseScreen.id,
                 );

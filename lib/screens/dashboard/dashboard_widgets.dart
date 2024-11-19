@@ -1,3 +1,4 @@
+import 'package:eod_reconcilaton/screens/total_profit/total_profit.dart';
 import 'package:eod_reconcilaton/utils/assets.dart';
 import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:flutter/material.dart';
@@ -128,10 +129,15 @@ class DashboardCard extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        titleText("See Breakdown",
-                            textAlign: TextAlign.center,
-                            fontSize: 12.sp,
-                            endPadding: 6.w
+                        InkWell(
+                          onTap: (){
+                            Navigator.pushNamed(context, TotalProfit.id);
+                          },
+                          child: titleText("See Breakdown",
+                              textAlign: TextAlign.center,
+                              fontSize: 12.sp,
+                              endPadding: 6.w
+                          ),
                         ),
                         Icon(
                           Icons.chevron_right,
