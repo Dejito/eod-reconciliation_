@@ -1,8 +1,11 @@
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/deposit_brain.dart';
+import '../../utils/assets.dart';
+import '../../utils/widgets.dart';
 import '../../widgets/deposit_listview.dart';
 import 'deposit_increase_screen.dart';
 
@@ -86,6 +89,43 @@ class _DepositScreenState extends State<DepositScreen> {
                 _charges = value;
               },
             ),
+            InkWell(
+              onTap: (){
+                if (_deposit.isEmpty || _charges.isEmpty) {
+                  return;
+                }
+                int? depoAmount = int.tryParse(_deposit);
+                //add deposit to a list
+                depoBrain.addDeposit(depoAmount!);
+                //calculate profit
+                int? chargedFee = int.tryParse(_charges);
+                int? increase = depoBrain.calcProfit(chargedFee!);
+                //add to list
+                depoBrain.addIncrease(increase!);
+                depoBrain.addCharges(chargedFee);
+                _charges = '';
+                _deposit = '';
+                _depositController.clear();
+                _chargesController.clear();
+                FocusScope.of(context).requestFocus(_depositFocusNode);
+              },
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.add,
+                    color: AppColors.primaryColor,
+                  ),
+                  SizedBox(
+                    width: 3.w,
+                  ),
+                  titleText(
+                    'Add Transaction',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                  ),
+                ],
+              ),
+            ),
             const SizedBox(
               height: 15,
             ),
@@ -95,23 +135,7 @@ class _DepositScreenState extends State<DepositScreen> {
               children: [
                 buildTextButton(
                   onPressed: () {
-                    if (_deposit.isEmpty || _charges.isEmpty) {
-                      return;
-                    }
-                    int? depoAmount = int.tryParse(_deposit);
-                    //add deposit to a list
-                    depoBrain.addDeposit(depoAmount!);
-                    //calculate profit
-                    int? chargedFee = int.tryParse(_charges);
-                    int? increase = depoBrain.calcProfit(chargedFee!);
-                    //add to list
-                    depoBrain.addIncrease(increase!);
-                    depoBrain.addCharges(chargedFee);
-                    _charges = '';
-                    _deposit = '';
-                    _depositController.clear();
-                    _chargesController.clear();
-                    FocusScope.of(context).requestFocus(_depositFocusNode);
+
                   },
                   label: 'Add transaction',
                 ),
