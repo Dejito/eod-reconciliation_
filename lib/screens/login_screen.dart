@@ -3,6 +3,7 @@ import 'package:eod_reconcilaton/utils/assets.dart';
 import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:eod_reconcilaton/widgets/loading_indicator.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,14 +35,13 @@ class LoginScreen extends StatelessWidget {
               //   "EOD Reconciliation",
               //   fontSize: 25.sp,
               // ),
-          Text(
-            "Login to continue",
-            style: GoogleFonts.mitr(
-              fontSize: 25.sp,
-              // fontWeight: FontWeight.bold,
-              color: AppColors.primaryColor,
-            ),
-          ),
+              Text(
+                "Login to continue",
+                style: GoogleFonts.mitr(
+                  fontSize: 25.sp,
+                  color: AppColors.primaryColor,
+                ),
+              ),
 
               const SizedBox(
                 height: 68,
@@ -52,30 +52,33 @@ class LoginScreen extends StatelessWidget {
                   hintText: "Phone number",
                   hintStyle: TextStyle(color: Colors.grey),
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.blue,
-                    ),
+                      borderSide: BorderSide(
+                        color: Colors.blue,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(50))
+
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
+              SizedBox(height: 50.h),
               const TextField(
                 obscureText: true,
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
-                  hintText: "Enter your pin",
+                  hintText: "Password",
                   hintStyle: TextStyle(color: Colors.grey),
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.blue,
-                    ),
+                      borderSide: BorderSide(
+                        color: AppColors.primaryColor,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(50))
                   ),
                 ),
               ),
 
               // Spacer(),
 
-              const SizedBox(height: 100),
+              const SizedBox(height: 50),
 
               buildElevatedButton(
                   onPressed: () async {
@@ -83,8 +86,7 @@ class LoginScreen extends StatelessWidget {
                     // await Future.delayed(const Duration(seconds: 2));
                     dismissLoadingIndicator();
                     if (context.mounted) {
-                      Navigator.of(context)
-                          .pushReplacementNamed(TabScreen.id);
+                      Navigator.of(context).pushReplacementNamed(TabScreen.id);
                     }
                   },
                   label: "Login",
@@ -92,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                   textColor: Colors.white,
                   borderColor: Colors.transparent),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
 
               Row(
@@ -100,15 +102,21 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.baseline,
                 textBaseline: TextBaseline.alphabetic,
                 children: [
-                  const Text("Don't have an account?"),
+                  Text(
+                    "Don't have an account?",
+                    style: GoogleFonts.mitr(
+                      fontSize: 13.sp,
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
                   TextButton(
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         "Sign up",
-                        style: TextStyle(
-                            color: Colors.blueAccent,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                        style: GoogleFonts.mitr(
+                          fontSize: 13.sp,
+                          color: Colors.redAccent,
+                        ),
                       )),
                 ],
               )
