@@ -8,6 +8,7 @@ class DepositBrain extends ChangeNotifier {
 
   final List<int> _deposit = [];
   final List<int> _increase = [];
+  final List<int> _charges = [];
 
   List<Increase> _databaseTransactions = [];
 
@@ -22,6 +23,10 @@ class DepositBrain extends ChangeNotifier {
 
   List<int> get increase {
     return [..._increase];
+  }
+
+  List<int> get charges {
+    return [..._charges];
   }
 
   void saveToDb(){
@@ -40,6 +45,11 @@ class DepositBrain extends ChangeNotifier {
 
   void addDeposit(int depo) {
     _deposit.add(depo);
+    notifyListeners();
+  }
+
+  void addCharges(int charges) {
+    _charges.add(charges);
     notifyListeners();
   }
 

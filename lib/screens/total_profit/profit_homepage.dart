@@ -56,7 +56,7 @@ class ProfitHomepage extends StatelessWidget {
                 height: 20.h,
               ),
               transactionTypeButton(
-                title: "POS Profit",
+                title: "Deposit Profit",
                 isProfitScreen: true,
                 onTap: () {
                   Navigator.of(context).pushNamed(DepositIncreaseScreen.id);
