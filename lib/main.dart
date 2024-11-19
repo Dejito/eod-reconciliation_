@@ -6,10 +6,11 @@ import 'package:eod_reconcilaton/providers/tf_withdrawal_brain.dart';
 import 'package:eod_reconcilaton/screens/deposits/deposit_increase_screen.dart';
 import 'package:eod_reconcilaton/screens/deposits/deposit_screen.dart';
 import 'package:eod_reconcilaton/screens/history/history.dart';
-import 'package:eod_reconcilaton/screens/landing_page.dart';
+import 'package:eod_reconcilaton/screens/login_screen.dart';
 import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_with_increase_screen.dart';
 import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_withdrawal_screen.dart';
 import 'package:eod_reconcilaton/screens/dashboard/dashboard.dart';
+import 'package:eod_reconcilaton/screens/pre_login/splash_screen.dart';
 import 'package:eod_reconcilaton/screens/total_profit/total_profit.dart';
 import 'package:eod_reconcilaton/screens/transfer_withdrawal/transfer_withdrawal_screen.dart';
 import 'package:eod_reconcilaton/screens/transfer_withdrawal/tx_with_increase_screen.dart';
@@ -56,9 +57,9 @@ class MyApp extends StatelessWidget {
               buttonColor: Colors.blueAccent,
             ),
           ),
-          home: const LandingPage(),
+          home: const SplashScreen(),
           routes: {
-            LandingPage.id: (context) => const LandingPage(),
+            LoginScreen.id: (context) => const LoginScreen(),
             Dashboard.id: (context) => const Dashboard(),
             TransferWithdrawalScreen.id: (context) => const TransferWithdrawalScreen(),
             TxWithIncreaseScreen.id: (context) => const TxWithIncreaseScreen(),
