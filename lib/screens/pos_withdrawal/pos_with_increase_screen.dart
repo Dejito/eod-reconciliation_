@@ -30,7 +30,7 @@ class PosWithIncreaseScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: increaseFigure <= 0
+      body: increaseFigure == 0
           ? const Center(
               child: Text('No transactions added yet!'),
             )

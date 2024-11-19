@@ -61,7 +61,7 @@ class TransactionBrain extends ChangeNotifier {
   }
 
   void removeByDismissibleIncrease (var id) {
-    _increase.remove(id);
+    _charges.remove(id);
     notifyListeners();
   }
 
@@ -73,13 +73,13 @@ class TransactionBrain extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeIncrease() {
-    if(_transactions.isEmpty) {
-      return;
-    }
-    _increase.removeLast();
-    notifyListeners();
-  }
+  // void removeIncrease() {
+  //   if(_transactions.isEmpty) {
+  //     return;
+  //   }
+  //   _increase.removeLast();
+  //   notifyListeners();
+  // }
 
   int? calculateTransferWithdrawalIncrease (int amount) {
     if (amount < 200) {

@@ -105,11 +105,13 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
                 txBrain.addTransaction(int.parse(_txAmount));
                 //convert string of amount withdrawn to int
                 int? chargesValue = int.tryParse(_chargeFee);
-                //put calculate result method here
-                // int? increase = txBrain
-                    // .calculateTransferWithdrawalIncrease(chargesValue!);
-                //add the increase to a list
                 txBrain.addCharges(chargesValue!);
+
+                //put calculate result method here
+                int? increase = txBrain
+                    .calculateTransferWithdrawalIncrease(chargesValue);
+                txBrain.addIncrease(increase!);
+                // add the increase to a list
 
                 _amountController.clear();
                 _chargesController.clear();
