@@ -36,6 +36,10 @@ class DepositListView extends StatelessWidget {
             child: TransactionsListviewItems(
               amount: depo.deposit[i].toString(),
               charge: depo.charges[i].toString(),
+              onDelete: (){
+                depo.removeTransDismissible(depo.deposit[i]);
+                depo.removeIncreaseDismissible(depo.charges[i]);
+              },
             ),
           );
         },

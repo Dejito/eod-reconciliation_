@@ -41,6 +41,7 @@ class TransactionsListView extends StatelessWidget {
             child: TransactionsListviewItems(
               amount:txBrain.transaction[i].toString(),
               charge: txBrain.increase[i].toString(),
+              onDelete: (){},
             ),
           );
         },

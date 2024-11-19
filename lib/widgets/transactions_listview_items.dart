@@ -7,8 +7,9 @@ class TransactionsListviewItems extends StatelessWidget {
 
   final String amount;
   final String charge;
+  final Function() onDelete;
 
-  const TransactionsListviewItems({super.key, required this.amount, required this.charge});
+  const TransactionsListviewItems({super.key, required this.amount, required this.charge, required this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +45,15 @@ class TransactionsListviewItems extends StatelessWidget {
                 ),
               ),
               Expanded(child: Container()),
-              const Icon(
-                Icons.delete_outline,
-                color: Color(0xFFB40303),
-                size: 30,
+              InkWell(
+                onTap: onDelete,
+                child: const Icon(
+                  Icons.delete_outline,
+                  color: Color(0xFFB40303),
+                  size: 30,
+                ),
               ),
+
               SizedBox(width: 10.w,),
 
             ],

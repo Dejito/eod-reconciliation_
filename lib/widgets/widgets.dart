@@ -1,3 +1,4 @@
+import 'package:eod_reconcilaton/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 Widget buildElevatedButton(
@@ -40,13 +41,13 @@ Widget buildElevatedButton(
 Widget buildElevatedButton2(
     {required Function() onPressed,
     required String label,
-    Color buttonColor = Colors.blueAccent,
+    Color buttonColor = AppColors.primaryColor,
     Color textColor = Colors.white}) {
   return ElevatedButton(
     style: ButtonStyle(
       elevation: MaterialStateProperty.resolveWith<double>((states) => 0),
       fixedSize: MaterialStateProperty.resolveWith<Size>(
-        (states) => const Size(165, 30),
+        (states) => const Size(300, 30),
       ),
       shape: MaterialStateProperty.resolveWith<OutlinedBorder>((states) {
         // Color borderColor = borderColor;

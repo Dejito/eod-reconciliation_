@@ -89,6 +89,7 @@ class _DepositScreenState extends State<DepositScreen> {
                 _charges = value;
               },
             ),
+            SizedBox(height: 10.h,),
             InkWell(
               onTap: (){
                 if (_deposit.isEmpty || _charges.isEmpty) {
@@ -110,6 +111,7 @@ class _DepositScreenState extends State<DepositScreen> {
                 FocusScope.of(context).requestFocus(_depositFocusNode);
               },
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   const Icon(
                     Icons.add,
@@ -120,8 +122,8 @@ class _DepositScreenState extends State<DepositScreen> {
                   ),
                   titleText(
                     'Add Transaction',
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
+                    // fontWeight: FontWeight.w500,
+                    fontSize: 14,
                   ),
                 ],
               ),
@@ -130,49 +132,6 @@ class _DepositScreenState extends State<DepositScreen> {
               height: 15,
             ),
             const DepositListView(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                buildTextButton(
-                  onPressed: () {
-
-                  },
-                  label: 'Add transaction',
-                ),
-                buildTextButton(
-                  onPressed: () {
-                    depoBrain.removeFromList();
-                  },
-                  label: 'Undo add',
-                ),
-                // TextButton(
-                //     onPressed: () {
-                //       if (_deposit.isEmpty || _charges.isEmpty) {
-                //         return;
-                //       }
-                //       int? depoAmount = int.tryParse(_deposit);
-                //       //add deposit to a list
-                //       depoBrain.addDeposit(depoAmount!);
-                //       //calculate profit
-                //       int? chargedFee = int.tryParse(_charges);
-                //       int? increase = depoBrain.calcProfit(chargedFee!);
-                //       //add to list
-                //       depoBrain.addIncrease(increase!);
-                //
-                //       _charges = '';
-                //       _deposit = '';
-                //       _depositController.clear();
-                //       _chargesController.clear();
-                //       FocusScope.of(context).requestFocus(_depositFocusNode);
-                //     },
-                //     child: const Text('Add transaction')),
-                // TextButton(
-                //     onPressed: () {
-                //       depoBrain.removeFromList();
-                //     },
-                //     child: const Text('Undo add')),
-              ],
-            ),
             buildElevatedButton2(
               onPressed: () {
                 if (depoBrain.deposit.isEmpty) {
