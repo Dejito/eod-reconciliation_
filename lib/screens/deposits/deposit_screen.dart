@@ -45,7 +45,7 @@ class _DepositScreenState extends State<DepositScreen> {
           Container(
             padding: const EdgeInsets.all(12),
             child: CircleAvatar(
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: AppColors.primaryColor,
               radius: 16,
               child: Text(
                 '${depoBrain.deposit.length}',

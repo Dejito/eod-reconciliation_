@@ -45,7 +45,7 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
           Container(
             padding: const EdgeInsets.all(12),
             child: CircleAvatar(
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: AppColors.primaryColor,
               radius: 16,
               child: Text(
                 '${txBrain.transaction.length}',
@@ -106,8 +106,8 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
                 //convert string of amount withdrawn to int
                 int? chargesValue = int.tryParse(_chargeFee);
                 //put calculate result method here
-                int? increase = txBrain
-                    .calculateTransferWithdrawalIncrease(chargesValue!);
+                // int? increase = txBrain
+                    // .calculateTransferWithdrawalIncrease(chargesValue!);
                 //add the increase to a list
                 txBrain.addCharges(chargesValue!);
 

@@ -103,80 +103,51 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
                 _charges = value;
               },
             ),
+            SizedBox(height: 10.h,),
+            InkWell(
+              onTap: (){
+                if (_charges.isEmpty || _amountWithdrawn.isEmpty) {
+                  return;
+                }
+                // FocusScope.of(context).requestFocus(_amountFocusNode);
+                //add transaction to list
+                int? amount = int.tryParse(_amountWithdrawn);
+                posBrain.addTransaction(amount!);
+                //accept amount charged
+                int? amountCharged = int.tryParse(_charges);
+                //calculate increase accrued from the transaction
+                double? posCharges = posBrain.calcIncrease(amount);
+                double increase = amountCharged! - posCharges!;
+                //store the increase to a list
+                posBrain.addIncrease(increase);
+                _charges = '';
+                _amountWithdrawn = '';
+                _amountController.clear();
+                _chargeController.clear();
+                FocusScope.of(context).requestFocus(_amountFocusNode);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Icon(
+                    Icons.add,
+                    color: AppColors.primaryColor,
+                  ),
+                  SizedBox(
+                    width: 3.w,
+                  ),
+                  titleText(
+                    'Add Transaction',
+                    // fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                  ),
+                ],
+              ),
+            ),
             SizedBox(
               height: 20.h,
             ),
             const PosWithdrawalListview(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                buildTextButton(
-                  onPressed: () {
-                    if (_charges.isEmpty || _amountWithdrawn.isEmpty) {
-                      return;
-                    }
-                    // FocusScope.of(context).requestFocus(_amountFocusNode);
-                    //add transaction to list
-                    int? amount = int.tryParse(_amountWithdrawn);
-                    posBrain.addTransaction(amount!);
-                    //accept amount charged
-                    int? amountCharged = int.tryParse(_charges);
-                    //calculate increase accrued from the transaction
-                    double? posCharges = posBrain.calcIncrease(amount);
-                    double increase = amountCharged! - posCharges!;
-                    //store the increase to a list
-                    posBrain.addIncrease(increase);
-                    _charges = '';
-                    _amountWithdrawn = '';
-                    _amountController.clear();
-                    _chargeController.clear();
-                    FocusScope.of(context).requestFocus(_amountFocusNode);
-                  },
-                  label: "Add transaction",
-                ),
-                buildTextButton(
-                    onPressed: () {
-                      posBrain.removeIncrease();
-                      posBrain.removeTransaction();
-                    },
-                    label: 'Undo add'),
-                // TextButton(
-                //     onPressed: () {
-                //       if (_charges.isEmpty || _amountWithdrawn.isEmpty) {
-                //         return;
-                //       }
-                //       // FocusScope.of(context).requestFocus(_amountFocusNode);
-                //       //add transaction to list
-                //       int? amount = int.tryParse(_amountWithdrawn);
-                //       posBrain.addTransaction(amount!);
-                //       //accept amount charged
-                //       int? amountCharged = int.tryParse(_charges);
-                //       //calculate increase accrued from the transaction
-                //       double? posCharges = posBrain.calcIncrease(amount);
-                //       double increase = amountCharged! - posCharges!;
-                //       //store the increase to a list
-                //       posBrain.addIncrease(increase);
-                //       _charges = '';
-                //       _amountWithdrawn = '';
-                //       _amountController.clear();
-                //       _chargeController.clear();
-                //       FocusScope.of(context).requestFocus(_amountFocusNode);
-                //     },
-                //     child: const Text(
-                //       'Add transaction',
-                //       style: TextStyle(
-                //           color: Colors.blueAccent,
-                //           fontWeight: FontWeight.bold,
-                //           fontSize: 15),
-                //     )),
-                // TextButton(
-                //     onPressed: () {
-                //       posBrain.removeIncrease();
-                //       posBrain.removeTransaction();
-                //     },
-                //     child: const Text('Undo add')),
-              ],
-            ),
             buildElevatedButton2(
               onPressed: () {
                 if (posBrain.transaction.isEmpty) {
@@ -190,20 +161,6 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
               },
               label: "Calculate increase",
             ),
-
-            // ElevatedButton(
-            //   onPressed: () {
-            //     if (posBrain.transaction.isEmpty) {
-            //       return;
-            //     }
-            //     _chargesFocusNode.unfocus();
-            //     // final totalIncrease = posBrain.sumOfIncreaseValue;
-            //     Navigator.of(context).pushNamed(
-            //       PosWithIncreaseScreen.id,
-            //     );
-            //   },
-            //   child: const Text('Calculate increase'),
-            // ),
           ],
         ),
       ),
