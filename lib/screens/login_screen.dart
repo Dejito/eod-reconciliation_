@@ -2,8 +2,6 @@ import 'package:eod_reconcilaton/screens/tab_screen.dart';
 import 'package:eod_reconcilaton/utils/assets.dart';
 import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:eod_reconcilaton/widgets/loading_indicator.dart';
-import 'package:eod_reconcilaton/widgets/widgets.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';

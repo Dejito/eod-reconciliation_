@@ -4,17 +4,44 @@ import 'package:eod_reconcilaton/screens/transfer_withdrawal/transfer_withdrawal
 import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
+import '../../providers/deposit_brain.dart';
+import '../../providers/pos_withdrawal_brain.dart';
+import '../../providers/profit_db.dart';
+import '../../providers/tf_withdrawal_brain.dart';
 import '../../widgets/main_drawer.dart';
 import '../deposits/deposit_screen.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   static const id = 'dashboard';
 
   const Dashboard({super.key});
 
   @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+
+  bool isCalled = false;
+  @override
+  void didChangeDependencies() async {
+    isCalled = true;
+    await Provider.of<ProfitDatabase>(context).fetchAndSetData();
+    isCalled = false;
+    super.didChangeDependencies();
+  }
+
+
+  @override
   Widget build(BuildContext context) {
+    final depo = Provider.of<DepositBrain>(context);
+    final pos = Provider.of<PosWithdrawalBrain>(context);
+    final transfer = Provider.of<TransactionBrain>(context);
+    // final profit = Provider.of<ProfitDatabase>(context, listen: false);
+    double netProfit = depo.depositIncrease + pos.sumOfIncreaseValue + transfer.sumOfIncreaseValue;
+    final profitDb = Provider.of<ProfitDatabase>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -49,23 +76,37 @@ class Dashboard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              dashboardCard(context),
+              DashboardCard(
+                cumulativeProfit: profitDb.fetchCumulativeProfit().toStringAsFixed(2),
+                todayProfit: netProfit.toStringAsFixed(2),
+              ),
+              // dashboardCard(context),
               const SizedBox(
                 height: 80,
               ),
               titleText("Transaction Type"),
-              transactionTypeButton(title: "POS Transactions", onTap: (){
-                Navigator.of(context).pushNamed(POSWithdrawalScreen.id);
-              }),
-              SizedBox(height: 20.h,),
-              transactionTypeButton(title: "Bank Transfer Withdrawal", onTap: (){
-                      Navigator.of(context).pushNamed(TransferWithdrawalScreen.id);
-              }),
-              SizedBox(height: 20.h,),
-              transactionTypeButton(title: "Deposits", onTap: (){
-                      Navigator.of(context).pushNamed(DepositScreen.id);
-
-              }),
+              transactionTypeButton(
+                  title: "POS Transactions",
+                  onTap: () {
+                    Navigator.of(context).pushNamed(POSWithdrawalScreen.id);
+                  }),
+              SizedBox(
+                height: 20.h,
+              ),
+              transactionTypeButton(
+                  title: "Bank Transfer Withdrawal",
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed(TransferWithdrawalScreen.id);
+                  }),
+              SizedBox(
+                height: 20.h,
+              ),
+              transactionTypeButton(
+                  title: "Deposits",
+                  onTap: () {
+                    Navigator.of(context).pushNamed(DepositScreen.id);
+                  }),
             ],
           ),
         ),
