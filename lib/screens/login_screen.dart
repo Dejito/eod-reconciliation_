@@ -55,9 +55,7 @@ class LoginScreen extends StatelessWidget {
                       borderSide: BorderSide(
                         color: Colors.blue,
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(50))
-
-                  ),
+                      borderRadius: BorderRadius.all(Radius.circular(50))),
                 ),
               ),
               SizedBox(height: 50.h),
@@ -71,8 +69,7 @@ class LoginScreen extends StatelessWidget {
                       borderSide: BorderSide(
                         color: AppColors.primaryColor,
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(50))
-                  ),
+                      borderRadius: BorderRadius.all(Radius.circular(50))),
                 ),
               ),
 
@@ -80,19 +77,43 @@ class LoginScreen extends StatelessWidget {
 
               const SizedBox(height: 50),
 
-              buildElevatedButton(
-                  onPressed: () async {
-                    showLoadingIndicator();
-                    // await Future.delayed(const Duration(seconds: 2));
-                    dismissLoadingIndicator();
-                    if (context.mounted) {
-                      Navigator.of(context).pushReplacementNamed(TabScreen.id);
-                    }
-                  },
-                  label: "Login",
-                  buttonColor: AppColors.primaryColor,
-                  textColor: Colors.white,
-                  borderColor: Colors.transparent),
+              InkWell(
+                onTap: () async {
+                  showLoadingIndicator();
+                  // await Future.delayed(const Duration(seconds: 2));
+                  dismissLoadingIndicator();
+                  if (context.mounted) {
+                    Navigator.of(context).pushReplacementNamed(TabScreen.id);
+                  }
+                },
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: AppColors.primaryColor,
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
+                  height: 55.h,
+                  width: double.infinity,
+                  child: Center(
+                    child: titleText("Log in",
+                        color: Colors.white, textAlign: TextAlign.center,
+                    fontWeight: FontWeight.bold, fontSize: 15.sp),
+                  ),
+                ),
+              ),
+
+              // buildElevatedButton(
+              //     onPressed: () async {
+              //       showLoadingIndicator();
+              //       // await Future.delayed(const Duration(seconds: 2));
+              //       dismissLoadingIndicator();
+              //       if (context.mounted) {
+              //         Navigator.of(context).pushReplacementNamed(TabScreen.id);
+              //       }
+              //     },
+              //     label: "Login",
+              //     buttonColor: AppColors.primaryColor,
+              //     textColor: Colors.white,
+              //     borderColor: Colors.transparent),
               const SizedBox(
                 height: 20,
               ),
