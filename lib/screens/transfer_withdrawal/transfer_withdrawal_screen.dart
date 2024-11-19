@@ -2,7 +2,9 @@ import 'package:eod_reconcilaton/screens/transfer_withdrawal/tx_with_increase_sc
 import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import '../../utils/assets.dart';
 import '../../widgets/transaction_list_view.dart';
 import '../../providers/tf_withdrawal_brain.dart';
 
@@ -83,7 +85,7 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
               keyboardType: TextInputType.number,
               controller: _chargesController,
               decoration: const InputDecoration(
-                label: Text('charge fee'),
+                label: Text('charged fee'),
               ),
               onChanged: (value) {
                 try {
@@ -93,30 +95,56 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
                 }
               },
             ),
+            SizedBox(height: 10.h,),
+            InkWell(
+              onTap: (){
+                if (_chargeFee.isEmpty || _txAmount.isEmpty) {
+                  return;
+                }
+                //add to transaction list
+                txBrain.addTransaction(int.parse(_txAmount));
+                //convert string of amount withdrawn to int
+                int? chargesValue = int.tryParse(_chargeFee);
+                //put calculate result method here
+                int? increase = txBrain
+                    .calculateTransferWithdrawalIncrease(chargesValue!);
+                //add the increase to a list
+                txBrain.addIncrease(increase!);
+
+                _amountController.clear();
+                _chargesController.clear();
+                _txAmount = '';
+                _chargeFee = '';
+                FocusScope.of(context).requestFocus(_amountFocusNode);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Icon(
+                    Icons.add,
+                    color: AppColors.primaryColor,
+                  ),
+                  SizedBox(
+                    width: 3.w,
+                  ),
+                  titleText(
+                    'Add Transaction',
+                    // fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
             const TransactionsListView(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 buildTextButton(
                   onPressed: () {
-                    if (_chargeFee.isEmpty || _txAmount.isEmpty) {
-                      return;
-                    }
-                    //add to transaction list
-                    txBrain.addTransaction(int.parse(_txAmount));
-                    //convert string of amount withdrawn to int
-                    int? chargesValue = int.tryParse(_chargeFee);
-                    //put calculate result method here
-                    int? increase = txBrain
-                        .calculateTransferWithdrawalIncrease(chargesValue!);
-                    //add the increase to a list
-                    txBrain.addIncrease(increase!);
 
-                    _amountController.clear();
-                    _chargesController.clear();
-                    _txAmount = '';
-                    _chargeFee = '';
-                    FocusScope.of(context).requestFocus(_amountFocusNode);
                   },
                   label: 'Add transaction',
                 ),

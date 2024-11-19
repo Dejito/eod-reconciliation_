@@ -36,6 +36,11 @@ class PosWithdrawalBrain extends ChangeNotifier {
     notifyListeners();
   }
 
+  // void addCharges(int charge) {
+  //   _charges.add(charge);
+  // }
+
+
   void saveToDb() {
    final newIncrease = Increase(id: DateTime.now().toString(), increaseAmount: sumOfIncreaseValue);
     DBHelperPOS.insert('user_increase', {
@@ -62,6 +67,10 @@ class PosWithdrawalBrain extends ChangeNotifier {
     notifyListeners();
   }
 
+  void removeChargesDismissible(var id){
+    _charges.remove(id);
+    notifyListeners();
+  }
 
   void addCharges (int charge) {
     _charges.add(charge);
