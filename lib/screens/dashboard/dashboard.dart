@@ -9,7 +9,7 @@ import '../../widgets/main_drawer.dart';
 import '../deposits/deposit_screen.dart';
 
 class Dashboard extends StatelessWidget {
-  static const id = 'selection_screen';
+  static const id = 'dashboard';
 
   const Dashboard({super.key});
 

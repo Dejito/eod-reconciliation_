@@ -1,4 +1,5 @@
 import 'package:eod_reconcilaton/screens/login_screen.dart';
+import 'package:eod_reconcilaton/screens/pre_login/onboarding.dart';
 import 'package:eod_reconcilaton/utils/assets.dart';
 import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen>
     _animationController.forward();
     _animationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Navigator.pushNamed(context, LoginScreen.id);
+        Navigator.pushNamed(context, OnboardingScreen.id);
         // Navigate to the next screen
         // getIt<NavigationService>().pushReplace(
         //     routeName: isFirstTime

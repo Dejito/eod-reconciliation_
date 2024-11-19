@@ -1,3 +1,5 @@
+import 'package:eod_reconcilaton/screens/login_screen.dart';
+import 'package:eod_reconcilaton/screens/pre_login/widget/dot_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,6 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'model/onboarding_model.dart';
 
 class OnboardingScreen extends StatefulWidget {
+
+  static const id = 'onboarding';
+
   const OnboardingScreen({super.key});
 
   @override
@@ -98,15 +103,15 @@ class OnboardingScreenState extends State<OnboardingScreen>
                           child: DotIndicator(
                               isActive: _currentIndex == key ? true : false));
                     }).toList()),
-                IAmAliveButton(
-                  height: 52.h,
-                  width: 320.w,
-                  text: _currentIndex != totalPages - 1
-                      ? S.of(context).next
-                      : S.of(context).getStarted,
-                  fontSize: 16.sp,
-                  onPressed: () => goOnboardingWidget(),
-                )
+                // IAmAliveButton(
+                //   height: 52.h,
+                //   width: 320.w,
+                //   text: _currentIndex != totalPages - 1
+                //       ? S.of(context).next
+                //       : S.of(context).getStarted,
+                //   fontSize: 16.sp,
+                //   onPressed: () => goOnboardingWidget(),
+                // )
               ],
             ),
           ),
@@ -116,7 +121,7 @@ class OnboardingScreenState extends State<OnboardingScreen>
   }
 
   void goOnboardingWidget() {
-    LocalStorageUtils.write(AppConstants.isUserFirstTime, 'true');
+    // LocalStorageUtils.write(AppConstants.isUserFirstTime, 'true');
     if (_currentIndex < totalPages - 1) {
       _currentIndex++;
       controller.animateToPage(
@@ -125,8 +130,9 @@ class OnboardingScreenState extends State<OnboardingScreen>
         curve: Curves.easeIn,
       );
     } else {
-      getIt<NavigationService>()
-          .pushReplace(routeName: VerificationRoutes.verificationRoot);
+      Navigator.pushReplacementNamed(context, LoginScreen.id);
+      // getIt<NavigationService>()
+      //     .pushReplace(routeName: VerificationRoutes.verificationRoot);
     }
   }
 }
