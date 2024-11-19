@@ -32,9 +32,9 @@ class ProfitDatabase with ChangeNotifier{
   }
 
   double fetchCumulativeProfit() {
-   double cumulativeProfit = 0.0;
+    double cumulativeProfit = 0.0;
    for (Increase i in _profit) {
-     cumulativeProfit = i.increaseAmount;
+     cumulativeProfit += i.increaseAmount;
    }
    return cumulativeProfit;
   }
