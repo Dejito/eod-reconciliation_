@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../providers/deposit_brain.dart';
 import '../../utils/assets.dart';
+import '../../utils/toast.dart';
 import '../../utils/widgets.dart';
 import '../../widgets/deposit_listview.dart';
 import 'deposit_increase_screen.dart';
@@ -93,6 +94,7 @@ class _DepositScreenState extends State<DepositScreen> {
             InkWell(
               onTap: (){
                 if (_deposit.isEmpty || _charges.isEmpty) {
+                  showToast(message: "Fields cannot be empty");
                   return;
                 }
                 int? depoAmount = int.tryParse(_deposit);

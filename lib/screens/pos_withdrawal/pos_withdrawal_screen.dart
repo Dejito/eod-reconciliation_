@@ -1,5 +1,6 @@
 import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_with_increase_screen.dart';
 import 'package:eod_reconcilaton/utils/assets.dart';
+import 'package:eod_reconcilaton/utils/toast.dart';
 import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -107,10 +108,12 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
             InkWell(
               onTap: (){
                 if (_charges.isEmpty || _amountWithdrawn.isEmpty) {
+                  showToast(message: "Fields cannot be empty");
                   return;
                 }
                 // FocusScope.of(context).requestFocus(_amountFocusNode);
-                //add transaction to list
+                //add transaction to lit
+                var validation = false;
                 int? amount = int.tryParse(_amountWithdrawn);
                 posBrain.addTransaction(amount!);
                 //accept amount charged
@@ -126,6 +129,11 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
                 _amountController.clear();
                 _chargeController.clear();
                 FocusScope.of(context).requestFocus(_amountFocusNode);
+                validation = true;
+                if (validation==false) {
+                  showToast(message: "Invalid amount");
+
+                }
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,

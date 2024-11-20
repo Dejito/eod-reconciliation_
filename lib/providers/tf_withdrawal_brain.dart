@@ -8,7 +8,7 @@ class TransactionBrain extends ChangeNotifier {
 
   final List<int> _transactions = [];
 
-   final List<int> _increase = [];
+   final List<double> _increase = [];
 
   final List<int> _charges = [];
 
@@ -22,7 +22,7 @@ class TransactionBrain extends ChangeNotifier {
     return [..._transactions];
   }
 
-  List<int> get increase {
+  List<double> get increase {
     return [..._increase];
   }
 
@@ -55,6 +55,11 @@ class TransactionBrain extends ChangeNotifier {
     notifyListeners();
   }
 
+  void addIncrease (double tx) {
+    _increase.add(tx);
+    notifyListeners();
+  }
+
   void removeByDismissible(var id) {
     _transactions.remove(id);
     notifyListeners();
@@ -81,23 +86,27 @@ class TransactionBrain extends ChangeNotifier {
   //   notifyListeners();
   // }
 
-  int? calculateTransferWithdrawalIncrease (int amount) {
-    if (amount < 200) {
-      return amount;
+  double? calculateTransferWithdrawalIncrease (int amount) {
+    if(amount < 20000) {
+      return amount*0.005;
     }
-    if (amount >= 200) {
-      return amount - 50;
+    if (amount >= 20000){
+      return 100;
     }
-    return 0;
+    return 100;
+    // if (amount < 200) {
+    //   return amount;
+    // }
+    // if (amount >= 200) {
+    //   return amount - 50;
+    // }
+    // return 0;
   }
 
-  void addIncrease (int tx) {
-    _increase.add(tx);
-    notifyListeners();
-  }
 
-    int get sumOfIncreaseValue {
-    int total = 0;
+
+    double get sumOfIncreaseValue {
+    double total = 0;
     for (var element in _increase) {
       total+= element;
     }

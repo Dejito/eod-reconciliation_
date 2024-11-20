@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../../utils/assets.dart';
+import '../../utils/toast.dart';
 import '../../widgets/transaction_list_view.dart';
 import '../../providers/tf_withdrawal_brain.dart';
 
@@ -99,18 +100,22 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
             InkWell(
               onTap: (){
                 if (_chargeFee.isEmpty || _txAmount.isEmpty) {
+                  showToast(message: "Fields cannot be empty");
                   return;
                 }
+                int? amount = int.tryParse(_txAmount);
                 //add to transaction list
-                txBrain.addTransaction(int.parse(_txAmount));
+                txBrain.addTransaction(amount!);
                 //convert string of amount withdrawn to int
                 int? chargesValue = int.tryParse(_chargeFee);
                 txBrain.addCharges(chargesValue!);
 
                 //put calculate result method here
-                int? increase = txBrain
-                    .calculateTransferWithdrawalIncrease(chargesValue);
-                txBrain.addIncrease(increase!);
+                double? increase = txBrain
+                    .calculateTransferWithdrawalIncrease(amount);
+                double increaseValue = chargesValue! - increase!;
+
+                txBrain.addIncrease(increaseValue);
                 // add the increase to a list
 
                 _amountController.clear();

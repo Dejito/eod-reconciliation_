@@ -39,7 +39,7 @@ class DashboardCard extends StatelessWidget {
                       titleText(
                         "3MTT 001",
                         color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                         bottomPadding: 4,
                       ),
                       titleText(
@@ -116,7 +116,7 @@ class DashboardCard extends StatelessWidget {
                 titleText("Total Profit Today",
                     textAlign: TextAlign.center,
                     fontSize: 13.sp,
-                    bottomPadding: 3.h
+                    bottomPadding: 0.h
                   // fontWeight: FontWeight.w400
                 ),
                 Row(
