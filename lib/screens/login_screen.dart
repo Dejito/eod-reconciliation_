@@ -1,6 +1,7 @@
 import 'package:eod_reconcilaton/screens/sign_up/sign_up.dart';
 import 'package:eod_reconcilaton/screens/tab_screen.dart';
 import 'package:eod_reconcilaton/utils/assets.dart';
+import 'package:eod_reconcilaton/utils/toast.dart';
 import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:eod_reconcilaton/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -79,8 +80,9 @@ class LoginScreen extends StatelessWidget {
               InkWell(
                 onTap: () async {
                   showLoadingIndicator();
-                  // await Future.delayed(const Duration(seconds: 2));
+                  await Future.delayed(const Duration(seconds: 2));
                   dismissLoadingIndicator();
+                  showToast(message: "User successfully logged in");
                   if (context.mounted) {
                     Navigator.of(context).pushReplacementNamed(TabScreen.id);
                   }

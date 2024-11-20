@@ -37,13 +37,13 @@ class DashboardCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       titleText(
-                        "3MTT 001",
+                        "Motunrayo",
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
                         bottomPadding: 4,
                       ),
                       titleText(
-                        "0012345678",
+                        "08123456789",
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
                       ),

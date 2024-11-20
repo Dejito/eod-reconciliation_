@@ -41,7 +41,16 @@ class _DepositScreenState extends State<DepositScreen> {
     final depoBrain = Provider.of<DepositBrain>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Deposit Screen'),
+        title: titleText('Deposit', fontSize: 16),
+          centerTitle: true,
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(0.0),
+            // Define the preferred size
+            child: Container(
+              color: Colors.grey,
+              height: 2,
+            ),
+          ),
         actions: [
           Container(
             padding: const EdgeInsets.all(12),
