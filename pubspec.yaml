@@ -43,6 +43,9 @@ dependencies:
   flutter_easyloading: ^3.0.5
   flutter_screenutil: ^5.9.0
   google_fonts:
+  fluttertoast: ^8.2.4
+
+
 
 dev_dependencies:
   flutter_test:
