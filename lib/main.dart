@@ -3,6 +3,7 @@ import 'package:eod_reconcilaton/providers/deposit_brain.dart';
 import 'package:eod_reconcilaton/providers/pos_withdrawal_brain.dart';
 import 'package:eod_reconcilaton/providers/profit_db.dart';
 import 'package:eod_reconcilaton/providers/tf_withdrawal_brain.dart';
+import 'package:eod_reconcilaton/screens/dashboard/profile_page.dart';
 import 'package:eod_reconcilaton/screens/deposits/deposit_increase_screen.dart';
 import 'package:eod_reconcilaton/screens/deposits/deposit_screen.dart';
 import 'package:eod_reconcilaton/screens/history/history.dart';
@@ -73,7 +74,8 @@ class MyApp extends StatelessWidget {
             History.id: (context) => const History(),
             TabScreen.id: (context) => const TabScreen(),
             OnboardingScreen.id: (context) => const OnboardingScreen(),
-            SignUpScreen.id: (context) => const SignUpScreen()
+            SignUpScreen.id: (context) => const SignUpScreen(),
+            ProfilePage.id: (context) => const ProfilePage()
           },
         ),
       ),
