@@ -1,4 +1,6 @@
+import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/deposit_brain.dart';
@@ -34,7 +36,7 @@ class _HistoryState extends State<History> {
   @override
   Widget build(BuildContext context) {
     final pos = Provider.of<PosWithdrawalBrain>(context, listen: false);
-    final posDB = pos.databaseTransactions;
+    final sqlDb = pos.databaseTransactions;
     final transferDb = Provider.of<TransactionBrain>(context, listen: false)
         .databaseTransactions;
     final depoDb =
@@ -44,7 +46,9 @@ class _HistoryState extends State<History> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('History'),
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: titleText('History', fontSize: 16.sp),
       ),
       body: Container(
         margin: const EdgeInsets.all(12),
@@ -52,7 +56,7 @@ class _HistoryState extends State<History> {
           future: pos.fetchAndSetIncrease(),
           builder: (context, snapshot) =>
               snapshot.connectionState == ConnectionState.waiting ||
-                      posDB.isEmpty
+                      sqlDb.isEmpty
                   ? const Center(
                       child: Text('No transactions added yet!'),
                     )
@@ -65,43 +69,41 @@ class _HistoryState extends State<History> {
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, i) {
-                          return Card(
-                            color: Colors.amberAccent.shade100,
-                            child: Container(
-                                margin: const EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 10),
-                                padding: const EdgeInsets.all(10),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      posDB[i].id.substring(0, 11),
-                                      style: const TextStyle(
-                                          color: Colors.blue,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      'POS increase is ${posDB[i].increaseAmount.toString()}',
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      'Transfer withdrawal increase is  ${transferDb[i].increaseAmount.toString()}',
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      'Deposit increase is  ${depoDb[i].increaseAmount.toString()}',
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      'Total increase is  ${profitDb[i].increaseAmount.toString()}',
-                                      style: const TextStyle(
-                                          color: Colors.blue,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                )),
+                          return Column(
+                            children: [
+                              _profitText(
+                                "  ${sqlDb[i].id.substring(0, 11)}",""
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 12.h),
+                                child: Card(
+                                  elevation: 4,
+                                  color: Colors.white,
+                                  child: Container(
+                                      margin: EdgeInsets.symmetric(
+                                          vertical: 12.h, horizontal: 5.w),
+                                      padding: EdgeInsets.all(6.w),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+
+                                          titleText(
+                                              "Total Profit is ${profitDb[i].increaseAmount.toStringAsFixed(1)}"),
+                                          SizedBox(height: 6.h,),
+
+                                          _profitText("POS Profit is", sqlDb[i].increaseAmount.toStringAsFixed(1)),
+
+                                          _profitText("Withdrawal Profit is", transferDb[i].increaseAmount.toStringAsFixed(1)),
+
+                                          _profitText("Deposit Profit is", depoDb[i].increaseAmount.toStringAsFixed(1)),
+
+                                        ],
+                                      )),
+                                ),
+                              ),
+                              SizedBox(height: 10.h,),
+
+                            ],
                           );
                         },
                         itemCount: pos.databaseTransactions.length,
@@ -111,4 +113,18 @@ class _HistoryState extends State<History> {
       ),
     );
   }
+}
+
+
+Widget _profitText(String leading, String trailing){
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 4.0),
+    child: Row(
+      children: [
+        titleText(leading, fontSize: 13),
+        titleText(" $trailing", color: const Color(0xFFB40303), fontSize: 13)
+
+      ],
+    ),
+  );
 }

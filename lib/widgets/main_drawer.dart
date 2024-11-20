@@ -99,20 +99,20 @@ class MainDrawer extends StatelessWidget {
                 Navigator.of(context).pushNamed(TotalProfit.id);
               },
             ),
-            const Divider(thickness: 1,),
-            customListTile(
-              txType: 'History',
-              icon: Icons.history,
-              onTap: () async {
-                if(context.mounted) {
-                  await Provider.of<TransactionBrain>(context, listen: false).fetchAndSetData();
-                  await Provider.of<PosWithdrawalBrain>(context,listen: false).fetchAndSetIncrease();
-                  await Provider.of<DepositBrain>(context, listen: false).fetchAndSetData();
-                  await Provider.of<ProfitDatabase>(context, listen: false).fetchAndSetData();
-                  Navigator.of(context).pushNamed(History.id);
-                }
-              },
-            ),
+            // const Divider(thickness: 1,),
+            // customListTile(
+            //   txType: 'History',
+            //   icon: Icons.history,
+            //   onTap: () async {
+            //     if(context.mounted) {
+            //       await Provider.of<TransactionBrain>(context, listen: false).fetchAndSetData();
+            //       await Provider.of<PosWithdrawalBrain>(context,listen: false).fetchAndSetIncrease();
+            //       await Provider.of<DepositBrain>(context, listen: false).fetchAndSetData();
+            //       await Provider.of<ProfitDatabase>(context, listen: false).fetchAndSetData();
+            //       Navigator.of(context).pushNamed(History.id);
+            //     }
+            //   },
+            // ),
             const Divider(thickness: 1,),
             customListTile(
               txType: 'Logout',

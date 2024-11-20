@@ -55,7 +55,7 @@ Widget buildElevatedButton2(
         // Color borderColor = borderColor;
         return RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4),
-          side: BorderSide(width: 2, color: buttonColor),
+          side: BorderSide(width: 2, color: enabledButton ? buttonColor : Colors.grey),
         );
       }),
       backgroundColor: MaterialStateProperty.resolveWith<Color>(
@@ -63,7 +63,7 @@ Widget buildElevatedButton2(
           // if (states.contains(MaterialState.disabled) || onPressed == null) {
           //   return (color ?? AppColors.iAmAliveBlue.withOpacity(0.2));
           // }
-          return buttonColor;
+          return enabledButton ? buttonColor : Colors.grey;
         },
       ),
     ),
