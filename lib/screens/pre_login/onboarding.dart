@@ -148,8 +148,6 @@ class OnboardingScreenState extends State<OnboardingScreen>
       );
     } else {
       Navigator.pushReplacementNamed(context, LoginScreen.id);
-      // getIt<NavigationService>()
-      //     .pushReplace(routeName: VerificationRoutes.verificationRoot);
     }
   }
 }

@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen>
     _animationController.forward();
     _animationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Navigator.pushNamed(context, OnboardingScreen.id);
+        Navigator.pushReplacementNamed(context, OnboardingScreen.id);
         // Navigate to the next screen
         // getIt<NavigationService>().pushReplace(
         //     routeName: isFirstTime
