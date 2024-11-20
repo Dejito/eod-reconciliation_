@@ -12,6 +12,7 @@ import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_withdrawal_screen.da
 import 'package:eod_reconcilaton/screens/dashboard/dashboard.dart';
 import 'package:eod_reconcilaton/screens/pre_login/onboarding.dart';
 import 'package:eod_reconcilaton/screens/pre_login/splash_screen.dart';
+import 'package:eod_reconcilaton/screens/sign_up/sign_up.dart';
 import 'package:eod_reconcilaton/screens/total_profit/total_profit.dart';
 import 'package:eod_reconcilaton/screens/transfer_withdrawal/transfer_withdrawal_screen.dart';
 import 'package:eod_reconcilaton/screens/transfer_withdrawal/tx_with_increase_screen.dart';
@@ -72,6 +73,7 @@ class MyApp extends StatelessWidget {
             History.id: (context) => const History(),
             TabScreen.id: (context) => const TabScreen(),
             OnboardingScreen.id: (context) => const OnboardingScreen(),
+            SignUpScreen.id: (context) => const SignUpScreen()
           },
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:eod_reconcilaton/screens/sign_up/sign_up.dart';
 import 'package:eod_reconcilaton/screens/tab_screen.dart';
 import 'package:eod_reconcilaton/utils/assets.dart';
 import 'package:eod_reconcilaton/utils/widgets.dart';
@@ -116,7 +117,9 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, SignUpScreen.id);
+                      },
                       child: Text(
                         "Sign up",
                         style: GoogleFonts.mitr(

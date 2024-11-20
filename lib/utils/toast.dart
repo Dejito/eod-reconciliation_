@@ -10,7 +10,7 @@ showToast({
   return Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.CENTER,
+      gravity: ToastGravity.BOTTOM,
       backgroundColor: backgroundColor,
       textColor: textColor
   );
