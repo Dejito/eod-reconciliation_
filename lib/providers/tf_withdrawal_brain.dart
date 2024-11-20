@@ -60,12 +60,17 @@ class TransactionBrain extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeByDismissible(var id) {
+  void removeByDismissibleTransaction(var id) {
     _transactions.remove(id);
     notifyListeners();
   }
 
   void removeByDismissibleIncrease (var id) {
+    _increase.remove(id);
+    notifyListeners();
+  }
+
+  void removeByDismissibleCharges (var id) {
     _charges.remove(id);
     notifyListeners();
   }

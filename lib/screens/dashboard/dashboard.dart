@@ -37,6 +37,12 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+
+     // Provider.of<TransactionBrain>(context, listen: false).fetchAndSetData();
+     // Provider.of<PosWithdrawalBrain>(context,listen: false).fetchAndSetIncrease();
+     // Provider.of<DepositBrain>(context, listen: false).fetchAndSetData();
+     // Provider.of<ProfitDatabase>(context, listen: false).fetchAndSetData();
+
     final depo = Provider.of<DepositBrain>(context);
     final pos = Provider.of<PosWithdrawalBrain>(context);
     final transfer = Provider.of<TransactionBrain>(context);

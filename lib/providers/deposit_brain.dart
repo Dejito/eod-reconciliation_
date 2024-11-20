@@ -85,5 +85,10 @@ class DepositBrain extends ChangeNotifier {
     notifyListeners();
   }
 
+  void removeChargesDismissible(var id){
+    _increase.remove(id);
+    notifyListeners();
+  }
+
 
 }

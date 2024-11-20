@@ -48,7 +48,7 @@ class OnboardingScreenState extends State<OnboardingScreen>
   }
 
   final List subtitleText = [
-    ",,,profitability made easy",
+    "...profitability made easy",
     " ...one transaction at a time"
   ];
 

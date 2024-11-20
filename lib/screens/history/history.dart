@@ -63,7 +63,7 @@ class _HistoryState extends State<History> {
         child: FutureBuilder(
           future: pos.fetchAndSetIncrease(),
           builder: (context, snapshot) =>
-              snapshot.connectionState == ConnectionState.waiting ||
+              // snapshot.connectionState == ConnectionState.waiting ||
                       sqlDb.isEmpty
                   ? const Center(
                       child: Text('No transactions added yet!'),

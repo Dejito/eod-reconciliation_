@@ -18,7 +18,8 @@ class DepositListView extends StatelessWidget {
             direction: DismissDirection.startToEnd,
             onDismissed: (dismissed) {
               depo.removeTransDismissible(depo.deposit[i]);
-              depo.removeIncreaseDismissible(depo.charges[i]);
+              depo.removeIncreaseDismissible(depo.increase[i]);
+              depo.removeChargesDismissible(depo.charges[i]);
             },
             background: Container(
               margin: const EdgeInsets.only(top: 3),
@@ -38,7 +39,9 @@ class DepositListView extends StatelessWidget {
               charge: depo.charges[i].toString(),
               onDelete: (){
                 depo.removeTransDismissible(depo.deposit[i]);
-                depo.removeIncreaseDismissible(depo.charges[i]);
+                depo.removeIncreaseDismissible(depo.increase[i]);
+                depo.removeChargesDismissible(depo.charges[i]);
+
               },
             ),
           );
