@@ -16,6 +16,7 @@ class ProfitHomepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title: titleText('Profits'),
         bottom: PreferredSize(

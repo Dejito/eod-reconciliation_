@@ -49,6 +49,14 @@ class _HistoryState extends State<History> {
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: titleText('History', fontSize: 16.sp),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(0.0),
+          // Define the preferred size
+          child: Container(
+            color: Colors.grey,
+            height: 2,
+          ),
+        ),
       ),
       body: Container(
         margin: const EdgeInsets.all(12),

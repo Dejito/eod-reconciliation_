@@ -15,27 +15,15 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         // elevation: 1,
-        title: titleText('Profile Set-up', fontSize: 18),
+        title: titleText('Profile Set-up', fontSize: 16),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(5.0),
+          preferredSize: const Size.fromHeight(0.0),
           child: Container(
             color: Colors.grey,
             height: 2,
           ),
         ),
-        // actions: [
-        //   InkWell(
-        //     child: Container(
-        //       decoration: BoxDecoration(
-        //           border: Border.all(color: const Color(0xFF1E1E1E)),
-        //           borderRadius: const BorderRadius.all(Radius.circular(100))),
-        //       child: const Icon(Icons.person),
-        //     ),
-        //   ),
-        //   const SizedBox(
-        //     width: 12,
-        //   )
-        // ],
+
       ),
       body: Container(
         margin: EdgeInsets.all(16.w),

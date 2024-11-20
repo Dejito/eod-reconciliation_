@@ -21,6 +21,7 @@ class TxWithIncreaseScreen extends StatelessWidget {
         centerTitle: true,
         title: titleText(
           'Withdrawal Profit',
+          fontSize: 16
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(5.0),

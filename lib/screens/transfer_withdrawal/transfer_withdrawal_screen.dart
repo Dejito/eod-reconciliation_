@@ -41,7 +41,8 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
     final txBrain = Provider.of<TransactionBrain>(context);
     return Scaffold(
       appBar: AppBar(
-        title: titleText('Transfer Withdrawal'),
+        centerTitle: true,
+        title: titleText('Transfer Withdrawal', fontSize: 16),
         actions: [
           Container(
             padding: const EdgeInsets.all(12),

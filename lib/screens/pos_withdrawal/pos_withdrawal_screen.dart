@@ -44,10 +44,11 @@ class _POSWithdrawalScreenState extends State<POSWithdrawalScreen> {
         centerTitle: true,
         title: titleText(
           "POS Transactions",
+          fontSize: 16
           // style: TextStyle(fontWeight: FontWeight.bold),
         ),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(5.0),
+          preferredSize: const Size.fromHeight(0.0),
           // Define the preferred size
           child: Container(
             color: Colors.grey,

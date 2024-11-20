@@ -50,7 +50,7 @@ class _DashboardState extends State<Dashboard> {
         // elevation: 1,
         title: titleText('Dashboard', fontSize: 18),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(5.0),
+          preferredSize: const Size.fromHeight(0.0),
           child: Container(
             color: Colors.grey,
             height: 2,
