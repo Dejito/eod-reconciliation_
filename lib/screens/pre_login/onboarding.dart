@@ -1,7 +1,6 @@
 import 'package:eod_reconcilaton/screens/login_screen.dart';
 import 'package:eod_reconcilaton/screens/pre_login/widget/dot_indicator.dart';
 import 'package:eod_reconcilaton/utils/assets.dart';
-import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -1,4 +1,5 @@
 import 'package:eod_reconcilaton/screens/dashboard/dashboard_widgets.dart';
+import 'package:eod_reconcilaton/screens/dashboard/profile_page.dart';
 import 'package:eod_reconcilaton/screens/pos_withdrawal/pos_withdrawal_screen.dart';
 import 'package:eod_reconcilaton/screens/transfer_withdrawal/transfer_withdrawal_screen.dart';
 import 'package:eod_reconcilaton/utils/widgets.dart';
@@ -57,6 +58,9 @@ class _DashboardState extends State<Dashboard> {
         ),
         actions: [
           InkWell(
+            onTap: (){
+              Navigator.of(context).pushNamed(ProfilePage.id);
+            },
             child: Container(
               decoration: BoxDecoration(
                   border: Border.all(color: const Color(0xFF1E1E1E)),
