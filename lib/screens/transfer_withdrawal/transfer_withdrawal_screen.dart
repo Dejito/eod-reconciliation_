@@ -1,7 +1,11 @@
 import 'package:eod_reconcilaton/screens/transfer_withdrawal/tx_with_increase_screen.dart';
+import 'package:eod_reconcilaton/utils/widgets.dart';
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import '../../utils/assets.dart';
+import '../../utils/toast.dart';
 import '../../widgets/transaction_list_view.dart';
 import '../../providers/tf_withdrawal_brain.dart';
 
@@ -37,12 +41,13 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
     final txBrain = Provider.of<TransactionBrain>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Transfer Withdrawal'),
+        centerTitle: true,
+        title: titleText('Transfer Withdrawal', fontSize: 16),
         actions: [
           Container(
             padding: const EdgeInsets.all(12),
             child: CircleAvatar(
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: AppColors.primaryColor,
               radius: 16,
               child: Text(
                 '${txBrain.transaction.length}',
@@ -82,7 +87,7 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
               keyboardType: TextInputType.number,
               controller: _chargesController,
               decoration: const InputDecoration(
-                label: Text('charge fee'),
+                label: Text('charged fee'),
               ),
               onChanged: (value) {
                 try {
@@ -92,70 +97,56 @@ class _TransferWithdrawalScreenState extends State<TransferWithdrawalScreen> {
                 }
               },
             ),
-            const TransactionsListView(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                buildTextButton(
-                  onPressed: () {
-                    if (_chargeFee.isEmpty || _txAmount.isEmpty) {
-                      return;
-                    }
-                    //add to transaction list
-                    txBrain.addTransaction(int.parse(_txAmount));
-                    //convert string of amount withdrawn to int
-                    int? chargesValue = int.tryParse(_chargeFee);
-                    //put calculate result method here
-                    int? increase = txBrain
-                        .calculateTransferWithdrawalIncrease(chargesValue!);
-                    //add the increase to a list
-                    txBrain.addIncrease(increase!);
+            SizedBox(height: 10.h,),
+            InkWell(
+              onTap: (){
+                if (_chargeFee.isEmpty || _txAmount.isEmpty) {
+                  showToast(message: "Fields cannot be empty");
+                  return;
+                }
+                int? amount = int.tryParse(_txAmount);
+                //add to transaction list
+                txBrain.addTransaction(amount!);
+                //convert string of amount withdrawn to int
+                int? chargesValue = int.tryParse(_chargeFee);
+                txBrain.addCharges(chargesValue!);
 
-                    _amountController.clear();
-                    _chargesController.clear();
-                    _txAmount = '';
-                    _chargeFee = '';
-                    FocusScope.of(context).requestFocus(_amountFocusNode);
-                  },
-                  label: 'Add transaction',
-                ),
-                buildTextButton(
-                  onPressed: () {
-                    txBrain.removeTransaction();
-                    txBrain.removeIncrease();
-                  },
-                  label: 'Undo add',
-                ),
-                // TextButton(
-                //     onPressed: () {
-                //       if (_chargeFee.isEmpty || _txAmount.isEmpty) {
-                //         return;
-                //       }
-                //       //add to transaction list
-                //       txBrain.addTransaction(int.parse(_txAmount));
-                //       //convert string of amount withdrawn to int
-                //       int? chargesValue = int.tryParse(_chargeFee);
-                //       //put calculate result method here
-                //       int? increase = txBrain
-                //           .calculateTransferWithdrawalIncrease(chargesValue!);
-                //       //add the increase to a list
-                //       txBrain.addIncrease(increase!);
-                //
-                //       _amountController.clear();
-                //       _chargesController.clear();
-                //       _txAmount = '';
-                //       _chargeFee = '';
-                //       FocusScope.of(context).requestFocus(_amountFocusNode);
-                //     },
-                //     child: const Text('Add transaction')),
-                // TextButton(
-                //     onPressed: () {
-                //       txBrain.removeTransaction();
-                //       txBrain.removeIncrease();
-                //     },
-                //     child: const Text('Undo add')),
-              ],
+                //put calculate result method here
+                double? increase = txBrain
+                    .calculateTransferWithdrawalIncrease(amount);
+                double increaseValue = chargesValue! - increase!;
+
+                txBrain.addIncrease(increaseValue);
+                // add the increase to a list
+
+                _amountController.clear();
+                _chargesController.clear();
+                _txAmount = '';
+                _chargeFee = '';
+                FocusScope.of(context).requestFocus(_amountFocusNode);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Icon(
+                    Icons.add,
+                    color: AppColors.primaryColor,
+                  ),
+                  SizedBox(
+                    width: 3.w,
+                  ),
+                  titleText(
+                    'Add Transaction',
+                    // fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                  ),
+                ],
+              ),
             ),
+            const SizedBox(
+              height: 15,
+            ),
+            const TransactionsListView(),
             buildElevatedButton2(
               onPressed: () {
                 if (txBrain.transaction.isEmpty) {

@@ -1,8 +1,12 @@
 import 'package:eod_reconcilaton/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/deposit_brain.dart';
+import '../../utils/assets.dart';
+import '../../utils/toast.dart';
+import '../../utils/widgets.dart';
 import '../../widgets/deposit_listview.dart';
 import 'deposit_increase_screen.dart';
 
@@ -37,12 +41,21 @@ class _DepositScreenState extends State<DepositScreen> {
     final depoBrain = Provider.of<DepositBrain>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Deposit Screen'),
+        title: titleText('Deposit', fontSize: 16),
+          centerTitle: true,
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(0.0),
+            // Define the preferred size
+            child: Container(
+              color: Colors.grey,
+              height: 2,
+            ),
+          ),
         actions: [
           Container(
             padding: const EdgeInsets.all(12),
             child: CircleAvatar(
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: AppColors.primaryColor,
               radius: 16,
               child: Text(
                 '${depoBrain.deposit.length}',
@@ -86,69 +99,50 @@ class _DepositScreenState extends State<DepositScreen> {
                 _charges = value;
               },
             ),
+            SizedBox(height: 10.h,),
+            InkWell(
+              onTap: (){
+                if (_deposit.isEmpty || _charges.isEmpty) {
+                  showToast(message: "Fields cannot be empty");
+                  return;
+                }
+                int? depoAmount = int.tryParse(_deposit);
+                //add deposit to a list
+                depoBrain.addDeposit(depoAmount!);
+                //calculate profit
+                int? chargedFee = int.tryParse(_charges);
+                int? increase = depoBrain.calcProfit(chargedFee!);
+                //add to list
+                depoBrain.addIncrease(increase!);
+                depoBrain.addCharges(chargedFee);
+                _charges = '';
+                _deposit = '';
+                _depositController.clear();
+                _chargesController.clear();
+                FocusScope.of(context).requestFocus(_depositFocusNode);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Icon(
+                    Icons.add,
+                    color: AppColors.primaryColor,
+                  ),
+                  SizedBox(
+                    width: 3.w,
+                  ),
+                  titleText(
+                    'Add Transaction',
+                    // fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                  ),
+                ],
+              ),
+            ),
             const SizedBox(
               height: 15,
             ),
             const DepositListView(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                buildTextButton(
-                  onPressed: () {
-                    if (_deposit.isEmpty || _charges.isEmpty) {
-                      return;
-                    }
-                    int? depoAmount = int.tryParse(_deposit);
-                    //add deposit to a list
-                    depoBrain.addDeposit(depoAmount!);
-                    //calculate profit
-                    int? chargedFee = int.tryParse(_charges);
-                    int? increase = depoBrain.calcProfit(chargedFee!);
-                    //add to list
-                    depoBrain.addIncrease(increase!);
-
-                    _charges = '';
-                    _deposit = '';
-                    _depositController.clear();
-                    _chargesController.clear();
-                    FocusScope.of(context).requestFocus(_depositFocusNode);
-                  },
-                  label: 'Add transaction',
-                ),
-                buildTextButton(
-                  onPressed: () {
-                    depoBrain.removeFromList();
-                  },
-                  label: 'Undo add',
-                ),
-                // TextButton(
-                //     onPressed: () {
-                //       if (_deposit.isEmpty || _charges.isEmpty) {
-                //         return;
-                //       }
-                //       int? depoAmount = int.tryParse(_deposit);
-                //       //add deposit to a list
-                //       depoBrain.addDeposit(depoAmount!);
-                //       //calculate profit
-                //       int? chargedFee = int.tryParse(_charges);
-                //       int? increase = depoBrain.calcProfit(chargedFee!);
-                //       //add to list
-                //       depoBrain.addIncrease(increase!);
-                //
-                //       _charges = '';
-                //       _deposit = '';
-                //       _depositController.clear();
-                //       _chargesController.clear();
-                //       FocusScope.of(context).requestFocus(_depositFocusNode);
-                //     },
-                //     child: const Text('Add transaction')),
-                // TextButton(
-                //     onPressed: () {
-                //       depoBrain.removeFromList();
-                //     },
-                //     child: const Text('Undo add')),
-              ],
-            ),
             buildElevatedButton2(
               onPressed: () {
                 if (depoBrain.deposit.isEmpty) {

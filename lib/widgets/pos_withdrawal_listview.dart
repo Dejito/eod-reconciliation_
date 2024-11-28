@@ -1,5 +1,6 @@
 import 'package:eod_reconcilaton/widgets/transactions_listview_items.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/pos_withdrawal_brain.dart';
@@ -25,9 +26,10 @@ class PosWithdrawalListview extends StatelessWidget {
               onDismissed: (dismissed){
                 pos.removeTransDismissible(pos.transaction[i]);
                 pos.removeIncreaseDismissible(pos.increase[i]);
+                pos.removeChargesDismissible(pos.charges[i]);
               },
               background: Container(
-                margin: const EdgeInsets.only(top: 3),
+                margin:  EdgeInsets.only(top: 16.h),
                 padding: const EdgeInsets.only(left: 12),
                 decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.error,
@@ -41,7 +43,13 @@ class PosWithdrawalListview extends StatelessWidget {
                 ),
               ),
               child: TransactionsListviewItems(
-                text:pos.transaction[i].toString(),
+                amount:pos.transaction[i].toString(),
+                charge: pos.charges[i].toString(),
+                onDelete: (){
+                  pos.removeTransDismissible(pos.transaction[i]);
+                  pos.removeIncreaseDismissible(pos.increase[i]);
+                  pos.removeChargesDismissible(pos.charges[i]);
+                },
               ),
             );
           },

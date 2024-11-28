@@ -8,6 +8,7 @@ class DepositBrain extends ChangeNotifier {
 
   final List<int> _deposit = [];
   final List<int> _increase = [];
+  final List<int> _charges = [];
 
   List<Increase> _databaseTransactions = [];
 
@@ -22,6 +23,10 @@ class DepositBrain extends ChangeNotifier {
 
   List<int> get increase {
     return [..._increase];
+  }
+
+  List<int> get charges {
+    return [..._charges];
   }
 
   void saveToDb(){
@@ -43,13 +48,18 @@ class DepositBrain extends ChangeNotifier {
     notifyListeners();
   }
 
+  void addCharges(int charges) {
+    _charges.add(charges);
+    notifyListeners();
+  }
+
   void addIncrease(int amount) {
     _increase.add(amount);
     notifyListeners();
   }
 
-  int? calcProfit(int amount) {
-    return amount - 20;
+  int? calcProfit(int charges) {
+    return charges - 20;
   }
 
   int get depositIncrease{
@@ -71,6 +81,11 @@ class DepositBrain extends ChangeNotifier {
   }
 
   void removeIncreaseDismissible(var id){
+    _increase.remove(id);
+    notifyListeners();
+  }
+
+  void removeChargesDismissible(var id){
     _increase.remove(id);
     notifyListeners();
   }

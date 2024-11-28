@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/foundation.dart';
 
 import 'db_helper.dart';
@@ -28,4 +30,13 @@ class ProfitDatabase with ChangeNotifier{
        increaseAmount: item['increaseAmount'])).toList();
     notifyListeners();
   }
+
+  double fetchCumulativeProfit() {
+    double cumulativeProfit = 0.0;
+   for (Increase i in _profit) {
+     cumulativeProfit += i.increaseAmount;
+   }
+   return cumulativeProfit;
+  }
+
 }

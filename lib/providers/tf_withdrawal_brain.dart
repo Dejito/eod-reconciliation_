@@ -8,9 +8,11 @@ class TransactionBrain extends ChangeNotifier {
 
   final List<int> _transactions = [];
 
-   final List<int> _increase = [];
+   final List<double> _increase = [];
 
-   List<Increase> _databaseTransactions = [];
+  final List<int> _charges = [];
+
+  List<Increase> _databaseTransactions = [];
 
   List<Increase> get databaseTransactions {
     return [..._databaseTransactions];
@@ -20,8 +22,12 @@ class TransactionBrain extends ChangeNotifier {
     return [..._transactions];
   }
 
-  List<int> get increase {
+  List<double> get increase {
     return [..._increase];
+  }
+
+  List<int> get charges {
+    return [..._charges];
   }
 
   void saveToDb (){
@@ -44,13 +50,28 @@ class TransactionBrain extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeByDismissible(var id) {
+  void addCharges (int charge) {
+    _charges.add(charge);
+    notifyListeners();
+  }
+
+  void addIncrease (double tx) {
+    _increase.add(tx);
+    notifyListeners();
+  }
+
+  void removeByDismissibleTransaction(var id) {
     _transactions.remove(id);
     notifyListeners();
   }
 
   void removeByDismissibleIncrease (var id) {
     _increase.remove(id);
+    notifyListeners();
+  }
+
+  void removeByDismissibleCharges (var id) {
+    _charges.remove(id);
     notifyListeners();
   }
 
@@ -61,30 +82,36 @@ class TransactionBrain extends ChangeNotifier {
     _transactions.removeLast();
     notifyListeners();
   }
-  void removeIncrease() {
-    if(_transactions.isEmpty) {
-      return;
+
+  // void removeIncrease() {
+  //   if(_transactions.isEmpty) {
+  //     return;
+  //   }
+  //   _increase.removeLast();
+  //   notifyListeners();
+  // }
+
+  double? calculateTransferWithdrawalIncrease (int amount) {
+    if(amount < 20000) {
+      return amount*0.005;
     }
-    _increase.removeLast();
-    notifyListeners();
-  }
-  int? calculateTransferWithdrawalIncrease (int amount) {
-    if (amount < 200) {
-      return amount;
+    if (amount >= 20000){
+      return 100;
     }
-    if (amount >= 200) {
-      return amount - 50;
-    }
-    return 0;
+    return 100;
+    // if (amount < 200) {
+    //   return amount;
+    // }
+    // if (amount >= 200) {
+    //   return amount - 50;
+    // }
+    // return 0;
   }
 
-  void addIncrease (int tx) {
-    _increase.add(tx);
-    notifyListeners();
-  }
 
-    int get sumOfIncreaseValue {
-    int total = 0;
+
+    double get sumOfIncreaseValue {
+    double total = 0;
     for (var element in _increase) {
       total+= element;
     }
