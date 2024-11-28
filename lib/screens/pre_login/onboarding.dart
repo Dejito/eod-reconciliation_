@@ -81,7 +81,7 @@ class OnboardingScreenState extends State<OnboardingScreen>
                       // height: 400,
                     ),
                     Text(
-                      "EOD RECONCILIATION",
+                      "POS Buddy",
                       style: GoogleFonts.oleoScript(
                         fontSize: 25.sp,
                         fontWeight: FontWeight.bold,

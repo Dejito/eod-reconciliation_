@@ -70,8 +70,7 @@ class ProfilePage extends StatelessWidget {
 
               titleText(" Business Name",bottomPadding: 8.h),
               const TextField(
-                obscureText: true,
-                keyboardType: TextInputType.phone,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   // hintText: "",
                   hintStyle: TextStyle(color: Colors.grey),
@@ -79,13 +78,12 @@ class ProfilePage extends StatelessWidget {
                       borderSide: BorderSide(
                         color: AppColors.primaryColor,
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(50))),
+                      borderRadius: BorderRadius.all(Radius.circular(50),),),
                 ),
               ),
               titleText(" Business Type",bottomPadding: 8.h, topPadding: 16.h),
               const TextField(
-                obscureText: true,
-                keyboardType: TextInputType.phone,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   // hintText: "Password",
                   hintStyle: TextStyle(color: Colors.grey),
@@ -99,8 +97,7 @@ class ProfilePage extends StatelessWidget {
           
               titleText(" Role in Business",bottomPadding: 8.h, topPadding: 16.h),
               const TextField(
-                obscureText: true,
-                keyboardType: TextInputType.phone,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   // hintText: "Password",
                   hintStyle: TextStyle(color: Colors.grey),

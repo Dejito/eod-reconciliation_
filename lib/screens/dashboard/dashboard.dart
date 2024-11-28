@@ -104,7 +104,7 @@ class _DashboardState extends State<Dashboard> {
                 height: 20.h,
               ),
               transactionTypeButton(
-                  title: "Bank Transfer Withdrawal",
+                  title: "Transfer Withdrawal",
                   onTap: () {
                     Navigator.of(context)
                         .pushNamed(TransferWithdrawalScreen.id);

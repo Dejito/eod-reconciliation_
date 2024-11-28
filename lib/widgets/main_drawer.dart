@@ -50,7 +50,7 @@ class MainDrawer extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               alignment: Alignment.centerLeft,
               color: AppColors.primaryColor,
-              child: titleText ('EOD Reconciliation',
+              child: titleText ('POS Buddy',
                   fontWeight: FontWeight.w700,
                   fontSize: 25,
                   color: Colors.white,

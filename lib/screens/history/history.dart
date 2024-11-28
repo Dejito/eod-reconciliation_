@@ -11,7 +11,7 @@ import '../../providers/tf_withdrawal_brain.dart';
 class History extends StatefulWidget {
   static const id = 'history';
 
-  const History({Key? key}) : super(key: key);
+  const History({super.key});
 
   @override
   State<History> createState() => _HistoryState();

@@ -67,7 +67,7 @@ class _SplashScreenState extends State<SplashScreen>
         //   height: 10.h,
         // ),
         Text(
-          "EOD RECONCILIATION",
+          "POS Buddy",
           style: GoogleFonts.oleoScript(
             fontSize: 25.sp,
             fontWeight: FontWeight.bold,
