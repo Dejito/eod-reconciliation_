@@ -66,14 +66,13 @@ class LoginScreen extends StatelessWidget {
                   hintText: "Password",
                   hintStyle: TextStyle(color: Colors.grey),
                   border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppColors.primaryColor,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(50))),
+                    borderSide: BorderSide(
+                      color: AppColors.primaryColor,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
                 ),
               ),
-
-              // Spacer(),
 
               const SizedBox(height: 50),
 
@@ -96,8 +95,10 @@ class LoginScreen extends StatelessWidget {
                   width: double.infinity,
                   child: Center(
                     child: titleText("Log in",
-                        color: Colors.white, textAlign: TextAlign.center,
-                    fontWeight: FontWeight.bold, fontSize: 15.sp),
+                        color: Colors.white,
+                        textAlign: TextAlign.center,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15.sp),
                   ),
                 ),
               ),

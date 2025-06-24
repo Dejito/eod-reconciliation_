@@ -29,7 +29,9 @@ class _DashboardState extends State<Dashboard> {
   @override
   void didChangeDependencies() async {
     isCalled = true;
-    await Provider.of<ProfitDatabase>(context).fetchAndSetData();
+    if (!isCalled){
+      await Provider.of<ProfitDatabase>(context).fetchAndSetData();
+    }
     isCalled = false;
     super.didChangeDependencies();
   }
