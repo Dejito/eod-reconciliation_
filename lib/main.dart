@@ -51,6 +51,7 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         designSize: const Size(390, 884),
         child: MaterialApp(
+          title: 'POSBuddy',
           debugShowCheckedModeBanner: false,
           builder: EasyLoading.init(),
           theme: ThemeData(
